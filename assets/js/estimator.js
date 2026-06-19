@@ -85,67 +85,145 @@ function renderCategorySelect() {
 }
 
 function selectCategory(id) {
-    state.category = id;
+    if(state.category !== id) {
+        state.category = id;
+        state.config = {}; // Reset config for new category
+    }
     render();
     setTimeout(() => {
         nextStep();
     }, 150);
 }
 
+function updateConfig(key, val) {
+    state.config[key] = val;
+    render();
+}
+
+function renderRadioGroup(key, label, options) {
+    let html = `<div class="form-group" style="margin-bottom: 2rem;">
+        <label class="form-label">${label}</label>
+        <div class="radio-card-grid">`;
+    
+    options.forEach(opt => {
+        const isChecked = state.config[key] === opt.value;
+        html += `
+            <label class="radio-card" style="${isChecked ? 'border-color: var(--champagne); background: rgba(201, 169, 110, 0.05);' : ''}">
+                <input type="radio" name="conf_${key}" value="${opt.value}" ${isChecked ? 'checked' : ''} onchange="updateConfig('${key}', '${opt.value}')">
+                <span class="label-text">${opt.label}</span>
+                ${opt.priceLabel ? `<span class="price-tag">${opt.priceLabel}</span>` : ''}
+            </label>
+        `;
+    });
+    
+    html += `</div></div>`;
+    return html;
+}
+
 function renderConfiguration() {
     let inputs = '';
     
     if (state.category === 'boiler') {
-        inputs = `
-            <div class="input-grid">
-                <div class="form-group">
-                    <label class="form-label">Type of Boiler</label>
-                    <div class="estimate-select-wrapper">
-                        <select class="form-control" id="conf_type" onchange="updateConfig('type', this.value)">
-                            <option value="2500" ${state.config.type === '2500' ? 'selected' : ''}>Budget Boiler</option>
-                            <option value="3500" ${state.config.type === '3500' ? 'selected' : ''}>Mid Range Boiler</option>
-                            <option value="5500" ${state.config.type === '5500' ? 'selected' : ''}>Premium Boiler</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Smart Controls? <span class="help-icon" title="Smart controls like Nest or Hive allow remote heating control.">?</span></label>
-                    <div class="estimate-select-wrapper">
-                        <select class="form-control" id="conf_smart" onchange="updateConfig('smart', this.value)">
-                            <option value="0" ${state.config.smart === '0' ? 'selected' : ''}>No</option>
-                            <option value="350" ${state.config.smart === '350' ? 'selected' : ''}>Yes (+£350)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        `;
-    } else if (state.category === 'bathroom') {
-        inputs = `
-            <div class="input-grid">
-                <div class="form-group">
-                    <label class="form-label">Specification Level</label>
-                    <div class="estimate-select-wrapper">
-                        <select class="form-control" id="conf_spec" onchange="updateConfig('spec', this.value)">
-                            <option value="7000" ${state.config.spec === '7000' ? 'selected' : ''}>Standard (£5k - £9k)</option>
-                            <option value="12000" ${state.config.spec === '12000' ? 'selected' : ''}>Premium (£9k - £15k)</option>
-                            <option value="25000" ${state.config.spec === '25000' ? 'selected' : ''}>Luxury (£15k+)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="help-tip-content" style="display:block">
-                <strong>Help Tip:</strong> Tile choice and plumbing alterations are often the largest cost variables in a bathroom installation.
-            </div>
-        `;
-    } else {
-        // Generic fallback for others for brevity in this MVP
-        inputs = `
-            <div class="form-group">
-                <label class="form-label">Estimated Base Value</label>
-                <p>We will calculate a standard indicative cost for this service type.</p>
-            </div>
-        `;
-        state.config.spec = '1500'; // Default arbitrary base
+        state.config.type = state.config.type || '3500';
+        state.config.smart = state.config.smart || '0';
+        inputs += renderRadioGroup('type', 'Type of Boiler', [
+            { value: '2500', label: 'Budget Boiler', priceLabel: '~£2.5k' },
+            { value: '3500', label: 'Mid-Range Boiler', priceLabel: '~£3.5k' },
+            { value: '5500', label: 'Premium Boiler', priceLabel: '~£5.5k' }
+        ]);
+        inputs += renderRadioGroup('smart', 'Add Smart Controls?', [
+            { value: '0', label: 'No, standard controls' },
+            { value: '350', label: 'Yes, add Hive/Nest', priceLabel: '+£350' }
+        ]);
+    } 
+    else if (state.category === 'bathroom') {
+        state.config.spec = state.config.spec || '7000';
+        state.config.tile = state.config.tile || 'wet';
+        inputs += renderRadioGroup('spec', 'Specification Level', [
+            { value: '7000', label: 'Standard', priceLabel: '£5k - £9k' },
+            { value: '12000', label: 'Premium', priceLabel: '£9k - £15k' },
+            { value: '25000', label: 'Luxury', priceLabel: '£15k+' }
+        ]);
+        inputs += renderRadioGroup('tile', 'Tiling Scope', [
+            { value: 'wet', label: 'Wet Zones Only' },
+            { value: 'half', label: 'Half Tiled' },
+            { value: 'full', label: 'Fully Tiled (Floor to Ceiling)' }
+        ]);
+    }
+    else if (state.category === 'ufh') {
+        state.config.area = state.config.area || 'med';
+        state.config.system = state.config.system || 'water';
+        inputs += renderRadioGroup('area', 'Floor Area', [
+            { value: 'small', label: 'Small (< 20m²)' },
+            { value: 'med', label: 'Medium (20 - 50m²)' },
+            { value: 'large', label: 'Large (50m²+)' }
+        ]);
+        inputs += renderRadioGroup('system', 'System Type', [
+            { value: 'electric', label: 'Electric Matting' },
+            { value: 'water', label: 'Warm Water System' }
+        ]);
+    }
+    else if (state.category === 'ashp') {
+        state.config.size = state.config.size || '3bed';
+        state.config.rads = state.config.rads || 'keep';
+        inputs += renderRadioGroup('size', 'Property Size', [
+            { value: '2bed', label: '2-Bed Home' },
+            { value: '3bed', label: '3-Bed Home' },
+            { value: '4bed', label: '4+ Bed Home' }
+        ]);
+        inputs += renderRadioGroup('rads', 'Radiator Upgrades', [
+            { value: 'keep', label: 'Keep Existing' },
+            { value: 'upgrade', label: 'Upgrade All (Recommended)' }
+        ]);
+    }
+    else if (state.category === 'radiator') {
+        state.config.qty = state.config.qty || '3to5';
+        state.config.style = state.config.style || 'standard';
+        inputs += renderRadioGroup('qty', 'Quantity', [
+            { value: '1to2', label: '1 - 2 Radiators' },
+            { value: '3to5', label: '3 - 5 Radiators' },
+            { value: '6plus', label: '6+ Radiators' }
+        ]);
+        inputs += renderRadioGroup('style', 'Style', [
+            { value: 'standard', label: 'Standard Panel' },
+            { value: 'designer', label: 'Designer / Column' }
+        ]);
+    }
+    else if (state.category === 'cylinder') {
+        state.config.type = state.config.type || 'unvented';
+        state.config.cap = state.config.cap || 'standard';
+        inputs += renderRadioGroup('type', 'System Type', [
+            { value: 'vented', label: 'Vented (Gravity)' },
+            { value: 'unvented', label: 'Unvented (Megaflo)' }
+        ]);
+        inputs += renderRadioGroup('cap', 'Capacity', [
+            { value: 'standard', label: 'Standard (~150L)' },
+            { value: 'large', label: 'Large (250L+)' }
+        ]);
+    }
+    else if (state.category === 'extension') {
+        state.config.scope = state.config.scope || 'single';
+        inputs += renderRadioGroup('scope', 'Scope of Work', [
+            { value: 'single', label: 'Single Story (Kitchen)' },
+            { value: 'double', label: 'Double Story (+ Bath)' },
+            { value: 'wrap', label: 'Full Wrap-around' }
+        ]);
+    }
+    else if (state.category === 'softener') {
+        state.config.size = state.config.size || '3to4';
+        inputs += renderRadioGroup('size', 'Household Size', [
+            { value: '1to2', label: '1 - 2 People' },
+            { value: '3to4', label: '3 - 4 People' },
+            { value: '5plus', label: '5+ People' }
+        ]);
+    }
+    else if (state.category === 'repipe') {
+        state.config.size = state.config.size || '3bed';
+        inputs += renderRadioGroup('size', 'Property Size', [
+            { value: 'flat', label: 'Flat / Bungalow' },
+            { value: '3bed', label: '3-Bed House' },
+            { value: '4bed', label: '4+ Bed House' }
+        ]);
     }
 
     return `
@@ -155,10 +233,6 @@ function renderConfiguration() {
             ${inputs}
         </div>
     `;
-}
-
-function updateConfig(key, val) {
-    state.config[key] = val;
 }
 
 function renderDetails() {
@@ -172,23 +246,23 @@ function renderDetails() {
                     <label class="form-label">Property Complexity / Access</label>
                     <div class="estimate-select-wrapper">
                         <select class="form-control" id="det_complex" onchange="state.details.complexity = parseFloat(this.value)">
-                            <option value="1">Standard Access (x1.0)</option>
-                            <option value="1.1">Slightly Restricted (x1.1)</option>
-                            <option value="1.3">Complex Property (x1.3)</option>
+                            <option value="1" ${state.details.complexity === 1 ? 'selected' : ''}>Standard Access (x1.0)</option>
+                            <option value="1.1" ${state.details.complexity === 1.1 ? 'selected' : ''}>Slightly Restricted (x1.1)</option>
+                            <option value="1.3" ${state.details.complexity === 1.3 ? 'selected' : ''}>Complex Property (x1.3)</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Your Name *</label>
-                    <input type="text" class="form-control" id="lead_name" placeholder="John Doe">
+                    <input type="text" class="form-control" id="lead_name" placeholder="John Doe" value="${state.lead.name || ''}" onchange="state.lead.name = this.value">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Email Address *</label>
-                    <input type="email" class="form-control" id="lead_email" placeholder="john@example.com">
+                    <input type="email" class="form-control" id="lead_email" placeholder="john@example.com" value="${state.lead.email || ''}" onchange="state.lead.email = this.value">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="lead_phone" placeholder="07...">
+                    <input type="tel" class="form-control" id="lead_phone" placeholder="07..." value="${state.lead.phone || ''}" onchange="state.lead.phone = this.value">
                 </div>
             </div>
         </div>
@@ -197,20 +271,50 @@ function renderDetails() {
 
 function calculateBase() {
     let base = 1500;
+    const c = state.config;
+    
     if (state.category === 'boiler') {
-        base = parseInt(state.config.type || 3500) + parseInt(state.config.smart || 0);
+        base = parseInt(c.type) + parseInt(c.smart);
         state.estimatedDays = '1 - 2';
     } else if (state.category === 'bathroom') {
-        base = parseInt(state.config.spec || 12000);
+        base = parseInt(c.spec);
+        if (c.tile === 'half') base += 1500;
+        if (c.tile === 'full') base += 3000;
         state.estimatedDays = '5 - 10';
     } else if (state.category === 'ufh') {
-        base = 4500; state.estimatedDays = '3 - 5';
+        base = c.system === 'electric' ? 1000 : 3500;
+        if (c.area === 'med') base *= 1.5;
+        if (c.area === 'large') base *= 2.5;
+        state.estimatedDays = '3 - 5';
     } else if (state.category === 'ashp') {
-        base = 12000; state.estimatedDays = '4 - 7';
+        base = c.size === '2bed' ? 10000 : (c.size === '3bed' ? 12000 : 15000);
+        if (c.rads === 'upgrade') base += 3500;
+        state.estimatedDays = '4 - 7';
     } else if (state.category === 'radiator') {
-        base = 800; state.estimatedDays = '1';
-    } else {
-        base = 2500; state.estimatedDays = '1 - 3';
+        let perRad = c.style === 'standard' ? 250 : 500;
+        if (c.qty === '1to2') base = perRad * 1.5;
+        if (c.qty === '3to5') base = perRad * 4;
+        if (c.qty === '6plus') base = perRad * 7;
+        state.estimatedDays = '1 - 2';
+    } else if (state.category === 'cylinder') {
+        base = c.type === 'vented' ? 1200 : 2500;
+        if (c.cap === 'large') base += 500;
+        state.estimatedDays = '1 - 2';
+    } else if (state.category === 'extension') {
+        if (c.scope === 'single') base = 3000;
+        if (c.scope === 'double') base = 6000;
+        if (c.scope === 'wrap') base = 9000;
+        state.estimatedDays = '5 - 10';
+    } else if (state.category === 'softener') {
+        if (c.size === '1to2') base = 1200;
+        if (c.size === '3to4') base = 1600;
+        if (c.size === '5plus') base = 2200;
+        state.estimatedDays = '1';
+    } else if (state.category === 'repipe') {
+        if (c.size === 'flat') base = 4000;
+        if (c.size === '3bed') base = 7000;
+        if (c.size === '4bed') base = 10000;
+        state.estimatedDays = '7 - 14';
     }
     
     return base * state.details.complexity;
@@ -272,14 +376,15 @@ function nextStep() {
         return;
     }
     if (state.step === 3) {
-        // Validate lead form
+        // Form handled by onchange inputs, validate here
         const name = document.getElementById('lead_name').value;
         const email = document.getElementById('lead_email').value;
         if (!name || !email) {
             alert("Please provide your name and email to generate the estimate.");
             return;
         }
-        state.lead = { name, email };
+        state.lead.name = name;
+        state.lead.email = email;
         
         // Trigger mock email
         document.getElementById('successModal').classList.add('active');

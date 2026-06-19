@@ -226,6 +226,13 @@ function renderConfiguration() {
         ]);
     }
 
+    state.config.complexity = state.config.complexity || '1';
+    inputs += renderRadioGroup('complexity', 'Property Complexity / Access', [
+        { value: '1', label: 'Standard Access' },
+        { value: '1.1', label: 'Restricted Access' },
+        { value: '1.3', label: 'Complex Property' }
+    ]);
+
     return `
         <div class="wizard-step-content active">
             <h3 class="step-title">Configure your project</h3>
@@ -238,31 +245,21 @@ function renderConfiguration() {
 function renderDetails() {
     return `
         <div class="wizard-step-content active">
-            <h3 class="step-title">Property & Contact Details</h3>
-            <p class="step-subtitle">We use this to apply regional pricing and to send your estimate.</p>
+            <h3 class="step-title">Optional: Send Your Estimate</h3>
+            <p class="step-subtitle">Enter your details if you'd like us to email you a copy of this estimate and follow up.</p>
             
             <div class="input-grid">
                 <div class="form-group">
-                    <label class="form-label">Property Complexity / Access</label>
-                    <div class="estimate-select-wrapper">
-                        <select class="form-control" id="det_complex" onchange="state.details.complexity = parseFloat(this.value)">
-                            <option value="1" ${state.details.complexity === 1 ? 'selected' : ''}>Standard Access (x1.0)</option>
-                            <option value="1.1" ${state.details.complexity === 1.1 ? 'selected' : ''}>Slightly Restricted (x1.1)</option>
-                            <option value="1.3" ${state.details.complexity === 1.3 ? 'selected' : ''}>Complex Property (x1.3)</option>
-                        </select>
-                    </div>
+                    <label class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="lead_name" placeholder="" value="${state.lead.name || ''}" onchange="state.lead.name = this.value">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Your Name *</label>
-                    <input type="text" class="form-control" id="lead_name" placeholder="John Doe" value="${state.lead.name || ''}" onchange="state.lead.name = this.value">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Email Address *</label>
-                    <input type="email" class="form-control" id="lead_email" placeholder="john@example.com" value="${state.lead.email || ''}" onchange="state.lead.email = this.value">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="lead_email" placeholder="" value="${state.lead.email || ''}" onchange="state.lead.email = this.value">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="lead_phone" placeholder="07..." value="${state.lead.phone || ''}" onchange="state.lead.phone = this.value">
+                    <input type="tel" class="form-control" id="lead_phone" placeholder="" value="${state.lead.phone || ''}" onchange="state.lead.phone = this.value">
                 </div>
             </div>
         </div>
@@ -317,7 +314,7 @@ function calculateBase() {
         state.estimatedDays = '7 - 14';
     }
     
-    return base * state.details.complexity;
+    return base * parseFloat(state.config.complexity || '1');
 }
 
 function renderOutput() {
@@ -376,18 +373,17 @@ function nextStep() {
         return;
     }
     if (state.step === 3) {
-        // Form handled by onchange inputs, validate here
+        // Form handled by onchange inputs
         const name = document.getElementById('lead_name').value;
         const email = document.getElementById('lead_email').value;
-        if (!name || !email) {
-            alert("Please provide your name and email to generate the estimate.");
-            return;
-        }
+        
         state.lead.name = name;
         state.lead.email = email;
         
-        // Trigger mock email
-        document.getElementById('successModal').classList.add('active');
+        // Trigger mock email only if email is provided
+        if (email) {
+            document.getElementById('successModal').classList.add('active');
+        }
     }
     
     state.step++;

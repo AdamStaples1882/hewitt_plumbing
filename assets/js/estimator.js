@@ -1,15 +1,15 @@
 // assets/js/estimator.js
 
 const categories = [
-    { id: 'ufh', name: 'Underfloor Heating', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>', desc: 'Water or electric systems' },
-    { id: 'boiler', name: 'Boiler Replacement', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>', desc: 'Combi, System or Conventional' },
-    { id: 'ashp', name: 'Air Source Heat Pump', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>', desc: 'Renewable heating' },
-    { id: 'bathroom', name: 'Bathroom Installation', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"></path><line x1="10" y1="5" x2="8" y2="7"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="7" y1="19" x2="7" y2="21"></line><line x1="17" y1="19" x2="17" y2="21"></line></svg>', desc: 'Full refits & wet rooms' },
-    { id: 'radiator', name: 'Radiator Install', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>', desc: 'New or replacement radiators' },
-    { id: 'cylinder', name: 'Cylinder Install', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>', desc: 'Unvented or vented systems' },
-    { id: 'extension', name: 'Plumbing for Extension', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>', desc: 'New build or extensions' },
-    { id: 'softener', name: 'Water Softener', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>', desc: 'Hard water solutions' },
-    { id: 'repipe', name: 'Whole House Repipe', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>', desc: 'Complete pipework replacement' }
+    { id: 'ufh', name: 'Underfloor Heating', desc: 'Water or electric systems' },
+    { id: 'boiler', name: 'Boiler Replacement', desc: 'Combi, System or Conventional' },
+    { id: 'ashp', name: 'Air Source Heat Pump', desc: 'Renewable heating' },
+    { id: 'bathroom', name: 'Bathroom Installation', desc: 'Full refits & wet rooms' },
+    { id: 'radiator', name: 'Radiator Install', desc: 'New or replacement radiators' },
+    { id: 'cylinder', name: 'Cylinder Install', desc: 'Unvented or vented systems' },
+    { id: 'extension', name: 'Plumbing for Extension', desc: 'New build or extensions' },
+    { id: 'softener', name: 'Water Softener', desc: 'Hard water solutions' },
+    { id: 'repipe', name: 'Whole House Repipe', desc: 'Complete pipework replacement' }
 ];
 
 let state = {
@@ -75,7 +75,6 @@ function renderCategorySelect() {
             <div class="category-grid">
                 ${categories.map(c => `
                     <div class="category-card ${state.category === c.id ? 'selected' : ''}" onclick="selectCategory('${c.id}')">
-                        <div class="category-icon">${c.icon}</div>
                         <div class="category-name">${c.name}</div>
                         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">${c.desc}</p>
                     </div>
@@ -88,6 +87,9 @@ function renderCategorySelect() {
 function selectCategory(id) {
     state.category = id;
     render();
+    setTimeout(() => {
+        nextStep();
+    }, 150);
 }
 
 function renderConfiguration() {

@@ -156,11 +156,6 @@
     background: var(--champagne);
 }
 
-.category-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--champagne);
-}
 
 .category-name {
     font-weight: 600;

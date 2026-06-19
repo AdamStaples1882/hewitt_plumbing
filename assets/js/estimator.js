@@ -400,15 +400,111 @@ function closeModal() {
 }
 
 function downloadPDF() {
-    const element = document.getElementById('pdfCaptureArea');
+    const categoryName = categories.find(c => c.id === state.category)?.name || 'Project';
+    const base = calculateBase();
+    const lower = Math.round((base * 0.7) / 10) * 10;
+    const upper = Math.round((base * 1.3) / 10) * 10;
+
+    const htmlContent = `
+        <div style="width: 750px; min-height: 1040px; padding: 50px; color: #1a1a1a; font-family: 'Inter', sans-serif; box-sizing: border-box; background: white; display: flex; flex-direction: column;">
+            <!-- Header -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #c9a96e; padding-bottom: 25px; margin-bottom: 40px;">
+                <div>
+                    <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 38px; margin: 0; color: #0a0a0a; font-weight: 600;">Hewitt</h1>
+                    <h2 style="font-family: 'Inter', sans-serif; font-size: 14px; margin: 5px 0 0; color: #4a4a4a; text-transform: uppercase; letter-spacing: 3px;">Plumbing & Heating</h2>
+                </div>
+                <div style="text-align: right; font-size: 13px; color: #4a4a4a; line-height: 1.6;">
+                    <strong>Hewitt Plumbing & Heating</strong><br>
+                    07540 182 837<br>
+                    khpah20@gmail.com<br>
+                    www.hewittplumbing.co.uk
+                </div>
+            </div>
+
+            <!-- Title & Details -->
+            <div style="display: flex; justify-content: space-between; margin-bottom: 40px;">
+                <div style="width: 50%;">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #0a0a0a; margin: 0 0 10px;">Estimate For:</h3>
+                    <div style="font-size: 15px; color: #1a1a1a; line-height: 1.6;">
+                        <strong>${state.lead.name || 'Valued Customer'}</strong><br>
+                        ${state.lead.email ? state.lead.email + '<br>' : ''}
+                        ${state.lead.phone ? state.lead.phone + '<br>' : ''}
+                    </div>
+                </div>
+                <div style="width: 45%; background: #f8f6f1; padding: 20px; border-radius: 6px; border: 1px solid #e5e0d8;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: #4a4a4a;">Estimate No:</span>
+                        <span style="font-weight: 600; color: #0a0a0a;">EST-${Math.floor(Math.random() * 10000)}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: #4a4a4a;">Date:</span>
+                        <span style="font-weight: 600; color: #0a0a0a;">${new Date().toLocaleDateString('en-GB')}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #4a4a4a;">Est. Duration:</span>
+                        <span style="font-weight: 600; color: #0a0a0a;">${state.estimatedDays} Days</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Items List -->
+            <div style="margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #0a0a0a; padding-bottom: 15px; margin-bottom: 20px;">
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #4a4a4a; font-weight: bold;">Description</div>
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #4a4a4a; font-weight: bold;">Estimated Cost</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #e5e0d8; padding-bottom: 30px;">
+                    <div style="width: 60%;">
+                        <strong style="font-size: 18px; color: #0a0a0a; display: block; margin-bottom: 10px;">${categoryName}</strong>
+                        <span style="font-size: 14px; color: #4a4a4a; line-height: 1.6; display: block;">
+                            Based on the details provided, this estimate covers the initial scope of work for the requested ${categoryName} installation. Includes estimated allowance for standard materials and certified labour.
+                        </span>
+                    </div>
+                    <div style="width: 40%; text-align: right; font-size: 22px; font-weight: 600; color: #0a0a0a; white-space: nowrap;">
+                        £${lower.toLocaleString()} - £${upper.toLocaleString()}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Section -->
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 40px;">
+                <div style="width: 60%; border-top: 2px solid #0a0a0a; padding-top: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 18px; font-weight: 600; color: #0a0a0a;">Indicative Total:</span>
+                        <span style="font-size: 26px; font-weight: 600; color: #c9a96e; white-space: nowrap;">£${lower.toLocaleString()} - £${upper.toLocaleString()}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flex spacer to push footer to bottom -->
+            <div style="flex-grow: 1;"></div>
+
+            <!-- Footer / Disclaimer -->
+            <div style="border-top: 1px solid #e5e0d8; padding-top: 25px; margin-bottom: 30px;">
+                <strong style="color: #4a4a4a; display: block; margin-bottom: 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Terms & Conditions of Estimate</strong>
+                <div style="font-size: 11px; color: #7a7a7a; line-height: 1.6; display: grid; gap: 6px;">
+                    <div><strong>1.</strong> This document is an estimate, not a fixed-price quotation. The figures provided are indicative and based on standard installation assumptions and the preliminary information provided.</div>
+                    <div><strong>2.</strong> Actual final costs may vary following a comprehensive site survey, access assessment, and finalised design requirements. Any unforeseen works discovered during installation may incur additional charges.</div>
+                    <div><strong>3.</strong> This estimate is valid for 30 days from the date of issue. Prices are subject to VAT at the prevailing rate unless otherwise stated.</div>
+                    <div><strong>4.</strong> To proceed with a formal quotation and secure your booking, please contact us to arrange a dedicated home survey.</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #0a0a0a; font-style: italic;">
+                Thank you for considering Hewitt Plumbing & Heating
+            </div>
+        </div>
+    `;
+
     const opt = {
-        margin:       1,
+        margin:       0.2,
         filename:     'Hewitt_Plumbing_Estimate.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scale: 2, useCORS: true },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
-    html2pdf().set(opt).from(element).save();
+
+    html2pdf().set(opt).from(htmlContent).save();
 }
 
 // Init

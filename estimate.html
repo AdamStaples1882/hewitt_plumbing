@@ -10,6 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <link rel="canonical" href="https://www.hewittplumbing.co.uk/estimate.html" />
+    <meta property="og:title" content="Get an Estimate | Hewitt Plumbing & Heating">
+    <meta property="og:description" content="Get an instant estimate for your plumbing or heating project with our premium online estimator.">
+    <meta property="og:url" content="https://www.hewittplumbing.co.uk/estimate.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <!-- Using the same global variables as index.html -->
     <style>
         :root {
@@ -58,10 +65,33 @@
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; background: none; border: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; }
         }
+        
+        /* ACCESSIBILITY & COOKIE BANNER */
+        :focus-visible { outline: 3px solid var(--champagne); outline-offset: 3px; }
+        .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100000; }
+        .skip-link:focus { left: 0; top: 0; width: auto; height: auto; background: var(--deep-black); color: var(--champagne); padding: 1rem; }
+        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); color: var(--ivory); padding: 1.5rem 5%; z-index: 99999; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(201,169,110,0.2); transform: translateY(100%); transition: transform 0.5s ease; }
+        .cookie-banner.show { transform: translateY(0); }
+        .cookie-text { font-size: 0.85rem; line-height: 1.5; color: rgba(248,246,241,0.8); max-width: 800px; }
+        .cookie-text a { color: var(--champagne); text-decoration: underline; }
+        .cookie-buttons { display: flex; gap: 1rem; }
+        .cookie-btn { background: var(--champagne); color: var(--deep-black); padding: 0.8rem 1.5rem; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; cursor: pointer; transition: var(--transition-fast); }
+        .cookie-btn:hover { background: var(--gold-light); }
     </style>
     <link rel="stylesheet" href="assets/css/estimator.css">
 </head>
 <body>
+    <a href="#estimatorApp" class="skip-link">Skip to main content</a>
+
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie Consent">
+        <div class="cookie-text">
+            We use cookies to enhance your experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
 
     <div class="top-bar">
         <div>24/7 Emergency Service Available</div>
@@ -98,5 +128,15 @@
     <!-- HTML2PDF CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="assets/js/estimator.js"></script>
+    <script>
+        // Cookie Banner Logic
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 1000);
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+    </script>
 </body>
 </html>

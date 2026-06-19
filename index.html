@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hewitt Plumbing & Heating | St Albans & Hertfordshire</title>
     <meta name="description" content="Hewitt Plumbing & Heating - Your trusted local plumber and Gas Safe registered heating engineer in St Albans, Hertfordshire. Boiler repairs, servicing, installations, gas work & plumbing. Call 07540 182 837.">
+    <link rel="canonical" href="https://www.hewittplumbing.co.uk/" />
+    
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:title" content="Hewitt Plumbing & Heating | St Albans & Hertfordshire">
+    <meta property="og:description" content="Your trusted local plumber and Gas Safe registered heating engineer in St Albans, Hertfordshire.">
+    <meta property="og:url" content="https://www.hewittplumbing.co.uk/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,10 +21,12 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Plumber",
+        "@type": "PlumbingService",
         "name": "Hewitt Plumbing & Heating",
+        "url": "https://www.hewittplumbing.co.uk",
         "telephone": "+447540182837",
         "email": "khpah20@gmail.com",
+        "image": "https://www.hewittplumbing.co.uk/assets/images/hero_image.png",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "473 The Ridgeway",
@@ -29,7 +39,8 @@
             "@type": "AggregateRating",
             "ratingValue": "10",
             "reviewCount": "25"
-        }
+        },
+        "priceRange": "££"
     }
     </script>
 
@@ -210,7 +221,7 @@
         .area-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: var(--champagne); transform: scaleX(0); transition: var(--transition-medium); }
         .area-card:hover::before { transform: scaleX(1); }
         .area-card:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(201, 169, 110, 0.25); transform: translateY(-5px); }
-        .area-card .area-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--champagne); opacity: 0.2; font-weight: 300; line-height: 1; margin-bottom: 1rem; }
+        .area-card .area-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--champagne); opacity: 0.8; font-weight: 500; line-height: 1; margin-bottom: 1rem; }
         .area-card h4 { font-size: 1.3rem; color: var(--ivory); margin-bottom: 0.5rem; font-weight: 400; }
         .area-card p { font-size: 0.8rem; color: rgba(248, 246, 241, 0.5); text-transform: uppercase; letter-spacing: 0.15em; }
 
@@ -296,6 +307,20 @@
         .footer-bottom a { color: rgba(248, 246, 241, 0.3); text-decoration: none; transition: var(--transition-fast); }
         .footer-bottom a:hover { color: var(--champagne); }
 
+        /* ACCESSIBILITY & UTILS */
+        :focus-visible { outline: 3px solid var(--champagne); outline-offset: 3px; }
+        .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100000; }
+        .skip-link:focus { left: 0; top: 0; width: auto; height: auto; background: var(--deep-black); color: var(--champagne); padding: 1rem; }
+        
+        /* COOKIE BANNER */
+        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); color: var(--ivory); padding: 1.5rem 5%; z-index: 99999; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(201,169,110,0.2); transform: translateY(100%); transition: transform 0.5s ease; }
+        .cookie-banner.show { transform: translateY(0); }
+        .cookie-text { font-size: 0.85rem; line-height: 1.5; color: rgba(248,246,241,0.8); max-width: 800px; }
+        .cookie-text a { color: var(--champagne); text-decoration: underline; }
+        .cookie-buttons { display: flex; gap: 1rem; }
+        .cookie-btn { background: var(--champagne); color: var(--deep-black); padding: 0.8rem 1.5rem; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; cursor: pointer; transition: var(--transition-fast); }
+        .cookie-btn:hover { background: var(--gold-light); }
+
         /* RESPONSIVE */
         @media (max-width: 1200px) { .hero-grid { gap: 3rem; } .about-grid, .contact-grid { gap: 4rem; } }
         @media (max-width: 1024px) { .services-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); } .areas-grid { grid-template-columns: repeat(2, 1fr); } .trust-container { grid-template-columns: repeat(2, 1fr); } .trust-item:not(:last-child)::after { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
@@ -335,8 +360,19 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="preloader" id="preloader">
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie Consent">
+        <div class="cookie-text">
+            We use cookies to enhance your experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <div class="preloader" id="preloader" aria-hidden="true">
         <div class="preloader-content">
             <div class="preloader-logo">Hewitt</div>
             <div class="preloader-line"></div>
@@ -369,16 +405,16 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">Menu</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="hero-grid">
             <div class="hero-content">
                 <div class="hero-label">St Albans & Hertfordshire</div>
                 <h1>Precision Plumbing & <em>Heating</em> Excellence</h1>
-                <p class="subtitle">Your trusted local plumber and Gas Safe registered heating engineer. From emergency boiler repairs to complete installations &mdash; delivered with professionalism, care, and an unwavering commitment to quality.</p>
+                <p class="subtitle">Your trusted local plumber and Gas Safe registered heating engineer. From emergency boiler repairs to complete installations delivered with professionalism, care, and an unwavering commitment to quality.</p>
                 <div class="hero-cta-group">
                     <a href="tel:07540182837" class="btn-primary">Call 07540 182 837</a>
                     <a href="#contact" class="btn-secondary">Request a Quote</a>
@@ -387,7 +423,7 @@
             <div class="hero-image">
                 <div class="img-frame">
                     <div class="img-overlay"></div>
-                    <img src="assets/images/hero_image.png" alt="High-quality, professional photography of a modern, clean boiler installation in a stylish home" class="parallax-img" id="heroImg">
+                    <img src="assets/images/hero_image.png" alt="High-quality, professional photography of a modern, clean boiler installation in a stylish home" class="parallax-img" id="heroImg" width="800" height="800" fetchpriority="high">
                 </div>
                 <div class="rating-float">
                     <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -436,7 +472,7 @@
         <div class="services-grid">
             <div class="service-card reveal">
                 <div class="service-img">
-                    <img src="assets/images/boiler_servicing.png" alt="Close up of a professional plumbing engineer's hands working with tools on a modern boiler unit">
+                    <img src="assets/images/boiler_servicing.png" alt="Close up of a professional plumbing engineer's hands working with tools on a modern boiler unit" width="600" height="400" loading="lazy">
                     <div class="overlay"><span class="number">01</span></div>
                 </div>
                 <div class="service-content">
@@ -447,7 +483,7 @@
             </div>
             <div class="service-card reveal reveal-delay-1">
                 <div class="service-img">
-                    <img src="assets/images/boiler_install.png" alt="A brand new, sleek, white combi boiler installed neatly on a modern kitchen wall">
+                    <img src="assets/images/boiler_install.png" alt="A brand new, sleek, white combi boiler installed neatly on a modern kitchen wall" width="600" height="400" loading="lazy">
                     <div class="overlay"><span class="number">02</span></div>
                 </div>
                 <div class="service-content">
@@ -458,7 +494,7 @@
             </div>
             <div class="service-card reveal reveal-delay-2">
                 <div class="service-img">
-                    <img src="assets/images/central_heating.png" alt="A modern, stylish designer radiator in a beautifully decorated contemporary living room">
+                    <img src="assets/images/central_heating.png" alt="A modern, stylish designer radiator in a beautifully decorated contemporary living room" width="600" height="400" loading="lazy">
                     <div class="overlay"><span class="number">03</span></div>
                 </div>
                 <div class="service-content">
@@ -469,7 +505,7 @@
             </div>
             <div class="service-card reveal">
                 <div class="service-img">
-                    <img src="assets/images/general_plumbing.png" alt="High-end photography of a luxury kitchen sink with modern brass or chrome mixer tap">
+                    <img src="assets/images/general_plumbing.png" alt="High-end photography of a luxury kitchen sink with modern brass or chrome mixer tap" width="600" height="400" loading="lazy">
                     <div class="overlay"><span class="number">04</span></div>
                 </div>
                 <div class="service-content">
@@ -480,7 +516,7 @@
             </div>
             <div class="service-card reveal reveal-delay-1">
                 <div class="service-img">
-                    <img src="assets/images/gas_cooker.png" alt="A premium stainless steel gas hob installed in a luxury marble countertop kitchen">
+                    <img src="assets/images/gas_cooker.png" alt="A premium stainless steel gas hob installed in a luxury marble countertop kitchen" width="600" height="400" loading="lazy">
                     <div class="overlay"><span class="number">05</span></div>
                 </div>
                 <div class="service-content">
@@ -491,7 +527,7 @@
             </div>
             <div class="service-card reveal reveal-delay-2">
                 <div class="service-img">
-                    <img src="assets/images/bathroom_shower.png" alt="A stunning, modern luxury walk-in shower with high-end thermostatic shower mixer">
+                    <img src="assets/images/bathroom_shower.png" alt="A stunning, modern luxury walk-in shower with high-end thermostatic shower mixer" width="600" height="400" loading="lazy">
                     <div class="overlay"><span class="number">06</span></div>
                 </div>
                 <div class="service-content">
@@ -605,7 +641,7 @@
                         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                     </div>
                 </div>
-                <p>&ldquo;I have had Klein do a few bits for me recently. He is highly professional and always gets the job done without any complaints. From washing machine fitting to general plumbing works &mdash; top quality every time.&rdquo;</p>
+                <p>&ldquo;I have had Klein do a few bits for me recently. He is highly professional and always gets the job done without any complaints. From washing machine fitting to general plumbing works, top quality every time.&rdquo;</p>
                 <div class="review-footer">
                     <span class="review-service">Washing Machine Fitting</span>
                     <span class="review-location">AL4</span>
@@ -695,7 +731,7 @@
             </div>
             <div class="about-image">
                 <div class="img-main">
-                    <img src="assets/images/about_image.png" alt="Professional plumbing tools and copper piping neatly arranged, emphasizing expertise and reliability">
+                    <img src="assets/images/about_image.png" alt="Professional plumbing tools and copper piping neatly arranged, emphasizing expertise and reliability" width="600" height="600" loading="lazy">
                 </div>
                 <div class="experience-badge">
                     <div class="years">10+</div>
@@ -848,7 +884,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div>2026 Hewitt Plumbing & Heating. All rights reserved.</div>
+            <div>&copy; 2026 Hewitt Plumbing & Heating. All rights reserved. <a href="privacy-policy.html">Privacy Policy</a></div>
             <div>Gas Safe Registered Engineer - St Albans, Hertfordshire</div>
         </div>
     </footer>
@@ -856,10 +892,18 @@
     <script>
         // Preloader
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 1500);
+            // Removed 1.5s timeout to improve INP Core Web Vitals metric
+            document.getElementById('preloader').classList.add('hidden');
         });
+
+        // Cookie Banner Logic
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 1000);
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
 
         // Mobile menu toggle
         function toggleMenu() {

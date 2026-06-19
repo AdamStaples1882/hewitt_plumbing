@@ -347,9 +347,9 @@ function renderOutput() {
                         <span style="color: var(--champagne);">★★★★☆</span>
                     </div>
                     
-                    <div style="margin-top: 3rem;">
-                        <button class="btn-next" onclick="downloadPDF()" data-html2canvas-ignore>Download PDF</button>
-                        <a href="index.html#contact" class="btn-back" style="margin-left: 1rem; text-decoration: none; display: inline-block;" data-html2canvas-ignore>Book Home Survey</a>
+                    <div class="action-buttons" data-html2canvas-ignore>
+                        <a href="index.html#contact" class="btn-next" style="text-decoration: none; display: inline-block; text-align: center; flex: 1;">Book Home Survey</a>
+                        <button class="btn-back" onclick="downloadPDF()" style="flex: 1;">Download PDF</button>
                     </div>
                 </div>
                 

@@ -324,27 +324,7 @@
         }
         @media (max-width: 480px) { .hero-content h1 { font-size: 2rem; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } .section-header h2 { font-size: 1.8rem; } .service-card .service-img { height: 220px; } }
 
-        /* ESTIMATION TOOL */
-        .estimate-section { background: var(--cream); position: relative; padding-top: 4rem; padding-bottom: 8rem; }
-        .estimate-container { max-width: 800px; margin: 0 auto; background: var(--warm-white); padding: 4rem; border: 1px solid rgba(0, 0, 0, 0.05); box-shadow: 0 30px 60px rgba(0,0,0,0.05); position: relative; z-index: 2; transform: translateY(-3rem); }
-        .estimate-container::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--champagne); }
-        .estimate-header { text-align: center; margin-bottom: 3rem; }
-        .estimate-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--text-primary); margin-bottom: 1rem; font-weight: 300; }
-        .estimate-header p { color: var(--text-muted); font-size: 1.05rem; font-weight: 300; }
-        .estimate-form-group { margin-bottom: 2rem; text-align: left; }
-        .estimate-form-group label { display: block; font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.8rem; color: var(--text-secondary); }
-        .estimate-select-wrapper { position: relative; }
-        .estimate-select { width: 100%; padding: 1.2rem; border: 1px solid var(--stone); background: var(--warm-white); font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--text-primary); appearance: none; cursor: pointer; transition: var(--transition-fast); }
-        .estimate-select:focus { outline: none; border-color: var(--champagne); box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1); }
-        .estimate-select-wrapper::after { content: '\25BC'; position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 0.7rem; color: var(--champagne); pointer-events: none; }
-        .estimate-btn { background: var(--deep-black); color: var(--champagne); padding: 1.2rem 2.5rem; border: none; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; cursor: pointer; transition: var(--transition-medium); width: 100%; font-family: 'Inter', sans-serif; }
-        .estimate-btn:hover { background: var(--champagne); color: var(--deep-black); border: 1px solid var(--champagne); }
-        .estimate-result { display: none; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--stone); text-align: center; animation: fadeIn 0.5s ease forwards; }
-        .estimate-result.active { display: block; }
-        .estimate-result h4 { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.15em; }
-        .estimate-price-range { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--champagne); line-height: 1; margin-bottom: 1.5rem; font-weight: 300; }
-        .estimate-disclaimer { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; font-weight: 300; }
-        @media (max-width: 768px) { .estimate-container { padding: 2rem; transform: translateY(0); margin-top: 2rem; } .estimate-price-range { font-size: 2.5rem; } .estimate-header h3 { font-size: 2.2rem; } }
+
 
         /* SCROLL ANIMATIONS */
         .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -384,7 +364,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#areas">Areas</a></li>
-                <li><a href="#estimate" style="color: var(--champagne); font-weight: 500;">Estimate</a></li>
+                <li><a href="estimate.html" style="color: var(--champagne); font-weight: 500;">Estimate</a></li>
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
@@ -523,51 +503,7 @@
         </div>
     </section>
 
-    <section class="estimate-section" id="estimate">
-        <div class="estimate-container reveal">
-            <div class="estimate-header">
-                <h3>Instant Estimate</h3>
-                <p>Get a rough idea of costs for your plumbing and heating project instantly.</p>
-            </div>
-            <form id="estimationForm">
-                <div class="estimate-form-group">
-                    <label for="projectType">What type of work do you need?</label>
-                    <div class="estimate-select-wrapper">
-                        <select class="estimate-select" id="projectType" required>
-                            <option value="" disabled selected>Select a service...</option>
-                            <option value="1800">Combi Boiler Swap (Like-for-like)</option>
-                            <option value="2500">System to Combi Boiler Conversion</option>
-                            <option value="4500">Standard Bathroom Fitting</option>
-                            <option value="250">Install New Radiator</option>
-                            <option value="150">General Plumbing Callout / Minor Repair</option>
-                            <option value="300">Gas Cooker Installation</option>
-                            <option value="90">Annual Boiler Service</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="estimate-form-group" id="complexityGroup" style="display:none;">
-                    <label for="complexity">Job Complexity / Size</label>
-                    <div class="estimate-select-wrapper">
-                        <select class="estimate-select" id="complexity">
-                            <option value="1">Standard / Small</option>
-                            <option value="1.2">Medium / Average</option>
-                            <option value="1.5">Large / Complex</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="estimate-btn">Calculate Estimate</button>
-            </form>
 
-            <div class="estimate-result" id="estimateResult">
-                <h4>Estimated Cost Range</h4>
-                <div class="estimate-price-range" id="priceRangeDisplay">£0 - £0</div>
-                <p class="estimate-disclaimer">
-                    *This is a rough estimation based on a 30% tolerance band (±15% from the base average) for a standard installation. Prices vary depending on specific property requirements, materials chosen, and ease of access. <br><br>
-                    <strong><a href="#contact" style="color: var(--text-primary); text-decoration: underline;">Contact us for a fixed quote.</a></strong>
-                </p>
-            </div>
-        </div>
-    </section>
 
     <section class="areas-section" id="areas">
         <div class="section section-dark" style="padding-bottom: 0;">
@@ -982,41 +918,7 @@
             }, 3000);
         }
 
-        // Estimation Tool Logic
-        const estForm = document.getElementById('estimationForm');
-        const projectType = document.getElementById('projectType');
-        const complexityGroup = document.getElementById('complexityGroup');
-        const estimateResult = document.getElementById('estimateResult');
-        const priceRangeDisplay = document.getElementById('priceRangeDisplay');
 
-        projectType.addEventListener('change', function() {
-            const val = parseInt(this.value);
-            if(val >= 1800) {
-                complexityGroup.style.display = 'block';
-            } else {
-                complexityGroup.style.display = 'none';
-            }
-        });
-
-        estForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const basePrice = parseInt(projectType.value);
-            if(!basePrice) return;
-
-            let finalBase = basePrice;
-            if(basePrice >= 1800) {
-                const multiplier = parseFloat(document.getElementById('complexity').value) || 1;
-                finalBase = basePrice * multiplier;
-            }
-
-            const lowerBound = Math.round((finalBase * 0.85) / 10) * 10;
-            const upperBound = Math.round((finalBase * 1.15) / 10) * 10;
-
-            priceRangeDisplay.innerHTML = `£${lowerBound.toLocaleString()} &mdash; £${upperBound.toLocaleString()}`;
-            estimateResult.classList.add('active');
-            
-            estimateResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

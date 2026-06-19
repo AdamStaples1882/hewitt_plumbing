@@ -1,0 +1,441 @@
+/* assets/css/estimator.css */
+
+.estimator-app {
+    padding: 4rem 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.estimator-wizard {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Wizard Header / Progress */
+.wizard-header {
+    background: var(--warm-white);
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--stone);
+    text-align: center;
+}
+
+.wizard-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--deep-black);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.progress-bar-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+.progress-bar-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--stone);
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.progress-step {
+    position: relative;
+    z-index: 2;
+    background: var(--warm-white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--stone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    transition: var(--transition-medium);
+}
+
+.progress-step.active {
+    border-color: var(--champagne);
+    background: var(--champagne);
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.2);
+}
+
+.progress-step.completed {
+    border-color: var(--champagne);
+    background: var(--champagne);
+    color: #fff;
+}
+
+/* Step Views */
+.wizard-step-content {
+    padding: 3rem;
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.wizard-step-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--deep-black);
+}
+
+.step-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+}
+
+/* Category Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.category-card {
+    background: var(--warm-white);
+    border: 1px solid var(--stone);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: transparent;
+    transition: var(--transition-medium);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    border-color: var(--champagne);
+}
+
+.category-card:hover::after {
+    background: var(--champagne);
+}
+
+.category-card.selected {
+    border-color: var(--champagne);
+    background: rgba(201, 169, 110, 0.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.category-card.selected::after {
+    background: var(--champagne);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--champagne);
+}
+
+.category-name {
+    font-weight: 600;
+    color: var(--deep-black);
+    font-size: 1.1rem;
+}
+
+/* Form Groups */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media(max-width: 768px) {
+    .input-grid { grid-template-columns: 1fr; }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.form-label .help-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: var(--stone);
+    color: var(--text-secondary);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    font-size: 0.6rem;
+    margin-left: 0.5rem;
+    cursor: help;
+    transition: var(--transition-fast);
+}
+.form-label .help-icon:hover {
+    background: var(--champagne);
+    color: #fff;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--stone);
+    background: var(--warm-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--champagne);
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23c9a96e%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem top 50%;
+    background-size: 0.65rem auto;
+}
+
+/* Radio Cards */
+.radio-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.radio-card {
+    position: relative;
+    border: 1px solid var(--stone);
+    border-radius: 6px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.radio-card input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-card .label-text {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.radio-card .price-tag {
+    font-size: 0.85rem;
+    color: var(--champagne);
+    font-weight: 600;
+}
+
+.radio-card:hover {
+    border-color: var(--champagne);
+}
+
+.radio-card input:checked ~ .label-text {
+    color: var(--champagne);
+}
+.radio-card input:checked {
+    /* parent styling handled in JS, but we can do it via has selector if supported */
+}
+
+/* Wizard Footer */
+.wizard-footer {
+    padding: 2rem 3rem;
+    background: var(--warm-white);
+    border-top: 1px solid var(--stone);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-back {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--stone);
+    padding: 0.8rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.btn-back:hover {
+    background: var(--stone);
+    color: var(--deep-black);
+}
+
+.btn-next, .btn-submit {
+    background: var(--deep-black);
+    color: var(--champagne);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: var(--transition-medium);
+}
+
+.btn-next:hover, .btn-submit:hover {
+    background: var(--champagne);
+    color: var(--deep-black);
+}
+
+/* Tooltips */
+.help-tip-content {
+    background: var(--ivory);
+    border-left: 4px solid var(--champagne);
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: none; /* Toggled by JS */
+}
+
+/* Final Summary Screen */
+.summary-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+@media(max-width: 992px) {
+    .summary-container { grid-template-columns: 1fr; }
+}
+
+.summary-main {
+    padding-right: 2rem;
+}
+
+.summary-sidebar {
+    background: var(--warm-white);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--stone);
+}
+
+.summary-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--champagne);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.summary-disclaimer {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--stone);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.summary-item span:first-child {
+    color: var(--text-secondary);
+}
+
+.summary-item span:last-child {
+    font-weight: 500;
+    color: var(--deep-black);
+}
+
+/* Modal for PDF/Email Success */
+.success-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-medium);
+}
+
+.success-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 4rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    transform: scale(0.9);
+    transition: var(--transition-medium);
+}
+
+.success-modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--deep-black);
+    margin-bottom: 1rem;
+}

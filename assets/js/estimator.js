@@ -23,6 +23,16 @@ let state = {
     showModal: false
 };
 
+
+function escapeHtml(unsafe) {
+    return (unsafe || '').toString()
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+}
+
 const app = document.getElementById('estimatorApp');
 
 function render() {
@@ -493,9 +503,9 @@ function downloadPDF() {
                 <div style="width: 50%;">
                     <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #0a0a0a; margin: 0 0 10px;">Estimate For:</h3>
                     <div style="font-size: 15px; color: #1a1a1a; line-height: 1.6;">
-                        <strong>${state.lead.name || 'Valued Customer'}</strong><br>
-                        ${state.lead.email ? state.lead.email + '<br>' : ''}
-                        ${state.lead.phone ? state.lead.phone + '<br>' : ''}
+                        <strong>${escapeHtml(state.lead.name) || 'Valued Customer'}</strong><br>
+                        ${state.lead.email ? escapeHtml(state.lead.email) + '<br>' : ''}
+                        ${state.lead.phone ? escapeHtml(state.lead.phone) + '<br>' : ''}
                     </div>
                 </div>
                 <div style="width: 45%; background: #f8f6f1; padding: 20px; border-radius: 6px; border: 1px solid #e5e0d8;">

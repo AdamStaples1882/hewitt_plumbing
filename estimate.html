@@ -77,6 +77,23 @@
         .cookie-buttons { display: flex; gap: 1rem; }
         .cookie-btn { background: var(--brand-red); color: var(--bg-black); padding: 0.8rem 1.5rem; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; cursor: pointer; transition: var(--transition-fast); }
         .cookie-btn:hover { background: var(--brand-red-light); }
+    
+        /* EXTRA MOBILE FIXES */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 3rem !important; }
+            .social-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 992px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-black); flex-direction: column; padding: 2rem; gap: 1.5rem; z-index: 1000; border-bottom: 2px solid var(--brand-red); text-align: center; }
+            .nav-links.active { display: flex !important; }
+            .mobile-menu-btn { display: block; background: none; border: 1px solid var(--brand-red); color: var(--brand-red); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-weight: bold; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+            .footer-brand p { max-width: 100% !important; }
+            .footer-col ul { display: flex; flex-direction: column; align-items: center; }
+        }
+
     </style>
     <link rel="stylesheet" href="assets/css/estimator.css">
 </head>
@@ -180,5 +197,16 @@
             <div>Gas Safe Registered Engineer - St Albans, Hertfordshire</div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const btn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.contains('active');
+            btn.setAttribute('aria-expanded', isExpanded);
+        }
+    </script>
+
 </body>
 </html>

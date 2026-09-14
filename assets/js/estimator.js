@@ -419,7 +419,7 @@ function renderOutput() {
                     </div>
 
                     <div class="action-buttons" data-html2canvas-ignore>
-                        <a href="index.html#contact" class="btn-next" style="text-decoration: none; display: inline-block; text-align: center; flex: 1;">Book Home Survey</a>
+                        <a href="index.html#quote-form" class="btn-next" style="text-decoration: none; display: inline-block; text-align: center; flex: 1;">Book Home Survey</a>
                         <button class="btn-back" onclick="downloadPDF()" style="flex: 1;">Download PDF</button>
                     </div>
                 </div>

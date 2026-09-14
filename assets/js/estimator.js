@@ -29,7 +29,7 @@ function render() {
     app.innerHTML = `
         <div class="estimator-wizard">
             <div class="wizard-header">
-                <h2 class="wizard-title">Instant Estimator</h2>
+                <h2 class="wizard-title">Project Estimator</h2>
                 <div class="progress-bar-container">
                     <div class="progress-step ${state.step >= 1 ? 'active' : ''} ${state.step > 1 ? 'completed' : ''}">1</div>
                     <div class="progress-step ${state.step >= 2 ? 'active' : ''} ${state.step > 2 ? 'completed' : ''}">2</div>

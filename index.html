@@ -52,7 +52,7 @@
             --brand-red-light: #ff1a1a;
             --text-light: #ffffff;
             --bg-card: #1a1a1a;
-            --bg-card: #f0ece4;
+            
             --border-dark: #333333;
             --text-primary: #ffffff;
             --text-secondary: #cccccc;
@@ -67,7 +67,7 @@
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg-card);
+            background: var(--bg-black);
             color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
@@ -197,7 +197,7 @@
 
         /* SERVICES */
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .service-card { background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.15); position: relative; overflow: hidden; transition: var(--transition-medium); cursor: pointer; }
+        .service-card { background: var(--bg-black); border: 1px solid rgba(255, 255, 255, 0.15); position: relative; overflow: hidden; transition: var(--transition-medium); cursor: pointer; }
         .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--brand-red); transform: scaleX(0); transform-origin: left; transition: var(--transition-medium); }
         .service-card:hover::before { transform: scaleX(1); }
         .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(255, 255, 255, 0.15); border-color: rgba(230, 0, 0, 0.2); }
@@ -225,9 +225,9 @@
         .area-card p { font-size: 0.8rem; color: rgba(255, 255, 255, 0.85); text-transform: uppercase; letter-spacing: 0.15em; }
 
         /* REVIEWS */
-        .reviews-section { background: var(--bg-card); }
+        .reviews-section { background: var(--bg-black); }
         .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .review-card { background: var(--bg-card); padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.15); position: relative; transition: var(--transition-medium); }
+        .review-card { background: var(--bg-black); padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.15); position: relative; transition: var(--transition-medium); }
         .review-card:hover { box-shadow: 0 20px 50px rgba(255, 255, 255, 0.15); transform: translateY(-5px); }
         .review-card .quote-mark { font-family: 'Oswald', serif; font-size: 5rem; color: var(--brand-red); opacity: 0.15; line-height: 1; position: absolute; top: 1rem; right: 1.5rem; }
         .review-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
@@ -263,7 +263,7 @@
         .experience-badge .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em; color: rgba(255, 255, 255, 0.95); margin-top: 0.5rem; }
 
         /* CONTACT */
-        .contact-section { background: var(--bg-card); }
+        .contact-section { background: var(--bg-black); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
         .contact-info .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.35em; color: var(--brand-red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
         .contact-info .label::before { content: ''; width: 40px; height: 1px; background: var(--brand-red); }
@@ -278,12 +278,12 @@
         .contact-method div a, .contact-method div span { color: var(--text-primary); text-decoration: none; font-weight: 400; font-size: 1.15rem; transition: var(--transition-fast); font-family: 'Oswald', serif; font-size: 1.4rem; }
         .contact-method div a:hover { color: var(--brand-red); }
         .contact-method div p { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem; font-weight: 300; }
-        .contact-form-wrapper { background: var(--bg-card); padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.15); position: relative; }
+        .contact-form-wrapper { background: var(--bg-black); padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.15); position: relative; }
         .contact-form-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--brand-red); }
         .contact-form-wrapper h3 { font-family: 'Oswald', serif; font-size: 1.8rem; color: var(--text-primary); margin-bottom: 2rem; font-weight: 400; }
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; color: var(--text-secondary); font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.6rem; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 1rem 1.2rem; border: 1px solid var(--border-dark); font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: var(--transition-fast); background: var(--bg-card); color: var(--text-primary); }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 1rem 1.2rem; border: 1px solid var(--border-dark); font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: var(--transition-fast); background: var(--bg-black); color: var(--text-primary); }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--brand-red); box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.08); }
         .form-group textarea { resize: vertical; min-height: 120px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }

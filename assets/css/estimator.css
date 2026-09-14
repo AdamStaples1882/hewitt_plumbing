@@ -7,8 +7,8 @@
 }
 
 .estimator-wizard {
-    background: #ffffff;
-    border-radius: 12px;
+    background: var(--bg-card);
+    border-radius: 4px; border: 2px solid var(--border-dark);
     box-shadow: 0 20px 40px rgba(0,0,0,0.06);
     overflow: hidden;
     position: relative;
@@ -16,16 +16,16 @@
 
 /* Wizard Header / Progress */
 .wizard-header {
-    background: var(--warm-white);
+    background: var(--bg-card);
     padding: 2rem 3rem;
-    border-bottom: 1px solid var(--stone);
+    border-bottom: 1px solid var(--border-dark);
     text-align: center;
 }
 
 .wizard-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Oswald', serif;
     font-size: 2.5rem;
-    color: var(--deep-black);
+    color: var(--text-light);
     margin-bottom: 1rem;
     font-weight: 400;
 }
@@ -45,7 +45,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--stone);
+    background: var(--border-dark);
     z-index: 1;
     transform: translateY(-50%);
 }
@@ -53,11 +53,11 @@
 .progress-step {
     position: relative;
     z-index: 2;
-    background: var(--warm-white);
+    background: var(--bg-card);
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 2px solid var(--stone);
+    border: 2px solid var(--border-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,15 +68,15 @@
 }
 
 .progress-step.active {
-    border-color: var(--champagne);
-    background: var(--champagne);
+    border-color: var(--brand-red);
+    background: var(--brand-red);
     color: #fff;
-    box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.2);
+    box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.2);
 }
 
 .progress-step.completed {
-    border-color: var(--champagne);
-    background: var(--champagne);
+    border-color: var(--brand-red);
+    background: var(--brand-red);
     color: #fff;
 }
 
@@ -97,10 +97,10 @@
 }
 
 .step-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Oswald', serif;
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--deep-black);
+    color: var(--text-light);
 }
 
 .step-subtitle {
@@ -117,8 +117,8 @@
 }
 
 .category-card {
-    background: var(--warm-white);
-    border: 1px solid var(--stone);
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
     border-radius: 8px;
     padding: 2rem 1.5rem;
     text-align: center;
@@ -132,34 +132,34 @@
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 3px;
-    background: transparent;
+    background: var(--bg-dark); color: var(--text-light);
     transition: var(--transition-medium);
 }
 
 .category-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-    border-color: var(--champagne);
+    border-color: var(--brand-red);
 }
 
 .category-card:hover::after {
-    background: var(--champagne);
+    background: var(--brand-red);
 }
 
 .category-card.selected {
-    border-color: var(--champagne);
-    background: rgba(201, 169, 110, 0.05);
+    border-color: var(--brand-red);
+    background: rgba(230, 0, 0, 0.05);
     box-shadow: 0 15px 30px rgba(0,0,0,0.05);
 }
 
 .category-card.selected::after {
-    background: var(--champagne);
+    background: var(--brand-red);
 }
 
 
 .category-name {
     font-weight: 600;
-    color: var(--deep-black);
+    color: var(--text-light);
     font-size: 1.1rem;
 }
 
@@ -192,7 +192,7 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: var(--stone);
+    background: var(--border-dark);
     color: var(--text-secondary);
     border-radius: 50%;
     text-align: center;
@@ -203,26 +203,26 @@
     transition: var(--transition-fast);
 }
 .form-label .help-icon:hover {
-    background: var(--champagne);
+    background: var(--brand-red);
     color: #fff;
 }
 
 .form-control {
     width: 100%;
     padding: 1rem 1.2rem;
-    border: 1px solid var(--stone);
-    background: var(--warm-white);
+    border: 1px solid var(--border-dark);
+    background: var(--bg-card);
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    color: var(--text-primary);
+    color: var(--text-light);
     border-radius: 4px;
     transition: var(--transition-fast);
 }
 
 .form-control:focus {
     outline: none;
-    border-color: var(--champagne);
-    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
+    border-color: var(--brand-red);
+    box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.1);
 }
 
 select.form-control {
@@ -242,7 +242,7 @@ select.form-control {
 
 .radio-card {
     position: relative;
-    border: 1px solid var(--stone);
+    border: 1px solid var(--border-dark);
     border-radius: 6px;
     padding: 1.5rem 1rem;
     text-align: center;
@@ -264,16 +264,16 @@ select.form-control {
 
 .radio-card .price-tag {
     font-size: 0.85rem;
-    color: var(--champagne);
+    color: var(--brand-red);
     font-weight: 600;
 }
 
 .radio-card:hover {
-    border-color: var(--champagne);
+    border-color: var(--brand-red);
 }
 
 .radio-card input:checked ~ .label-text {
-    color: var(--champagne);
+    color: var(--brand-red);
 }
 .radio-card input:checked {
     /* parent styling handled in JS, but we can do it via has selector if supported */
@@ -282,17 +282,17 @@ select.form-control {
 /* Wizard Footer */
 .wizard-footer {
     padding: 2rem 3rem;
-    background: var(--warm-white);
-    border-top: 1px solid var(--stone);
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .btn-back {
-    background: transparent;
+    background: var(--bg-dark); color: var(--text-light);
     color: var(--text-secondary);
-    border: 1px solid var(--stone);
+    border: 1px solid var(--border-dark);
     padding: 0.8rem 1.5rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
@@ -305,13 +305,13 @@ select.form-control {
 }
 
 .btn-back:hover {
-    background: var(--stone);
-    color: var(--deep-black);
+    background: var(--border-dark);
+    color: var(--text-light);
 }
 
 .btn-next, .btn-submit {
-    background: var(--deep-black);
-    color: var(--champagne);
+    background: var(--bg-black);
+    color: var(--brand-red);
     border: none;
     padding: 0.8rem 2rem;
     font-family: 'Inter', sans-serif;
@@ -325,14 +325,14 @@ select.form-control {
 }
 
 .btn-next:hover, .btn-submit:hover {
-    background: var(--champagne);
-    color: var(--deep-black);
+    background: var(--brand-red);
+    color: var(--text-light);
 }
 
 /* Tooltips */
 .help-tip-content {
-    background: var(--ivory);
-    border-left: 4px solid var(--champagne);
+    background: var(--text-light);
+    border-left: 4px solid var(--brand-red);
     padding: 1rem 1.5rem;
     margin-top: 1.5rem;
     font-size: 0.9rem;
@@ -356,16 +356,16 @@ select.form-control {
 }
 
 .summary-sidebar {
-    background: var(--warm-white);
+    background: var(--bg-card);
     padding: 2rem;
     border-radius: 8px;
-    border: 1px solid var(--stone);
+    border: 1px solid var(--border-dark);
 }
 
 .summary-price {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Oswald', serif;
     font-size: 3.5rem;
-    color: var(--champagne);
+    color: var(--brand-red);
     line-height: 1;
     margin-bottom: 0.5rem;
 }
@@ -376,7 +376,7 @@ select.form-control {
     line-height: 1.5;
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px dashed var(--stone);
+    border-top: 1px dashed var(--border-dark);
 }
 
 .summary-item {
@@ -392,7 +392,7 @@ select.form-control {
 
 .summary-item span:last-child {
     font-weight: 500;
-    color: var(--deep-black);
+    color: var(--text-light);
 }
 
 /* Modal for PDF/Email Success */
@@ -429,8 +429,8 @@ select.form-control {
 }
 
 .modal-content h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Oswald', serif;
     font-size: 2.5rem;
-    color: var(--deep-black);
+    color: var(--text-light);
     margin-bottom: 1rem;
 }

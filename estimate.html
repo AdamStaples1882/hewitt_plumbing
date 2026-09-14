@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="canonical" href="https://www.hewittplumbing.co.uk/estimate.html" />
     <meta property="og:title" content="Get an Estimate | Hewitt Plumbing & Heating">
@@ -20,45 +20,45 @@
     <!-- Using the same global variables as index.html -->
     <style>
         :root {
-            --deep-black: #0a0a0a;
-            --charcoal: #141414;
-            --champagne: #c9a96e;
-            --gold-light: #d4b87a;
-            --ivory: #f8f6f1;
-            --warm-white: #faf9f7;
-            --cream: #f0ece4;
-            --stone: #e5e0d8;
-            --text-primary: #1a1a1a;
-            --text-secondary: #4a4a4a;
-            --text-muted: #7a7a7a;
+            --bg-black: #000000;
+            --bg-dark: #111111;
+            --brand-red: #e60000;
+            --brand-red-light: #ff1a1a;
+            --text-light: #ffffff;
+            --bg-card: #1a1a1a;
+            --bg-card: #f0ece4;
+            --border-dark: #333333;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
             --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --transition-medium: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --transition-fast: all 0.2s ease-out;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--text-light); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
         
         /* Nav styles */
-        .top-bar { background-color: var(--deep-black); color: var(--ivory); padding: 0.8rem 5%; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.05em; font-weight: 300; }
+        .top-bar { background-color: var(--bg-black); color: var(--text-light); padding: 0.8rem 5%; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.05em; font-weight: 300; }
         .top-bar-contact { display: flex; gap: 2rem; }
         .top-bar-contact a { transition: var(--transition-fast); }
-        .top-bar-contact a:hover { color: var(--champagne); }
+        .top-bar-contact a:hover { color: var(--brand-red); }
         .divider { color: var(--text-secondary); margin: 0 0.5rem; }
         
-        #navbar { padding: 1.5rem 5%; background: var(--ivory); border-bottom: 1px solid var(--stone); position: sticky; top: 0; z-index: 100; transition: var(--transition-medium); }
+        #navbar { padding: 1.5rem 5%; background: var(--text-light); border-bottom: 1px solid var(--border-dark); position: sticky; top: 0; z-index: 100; transition: var(--transition-medium); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
         .logo { display: flex; align-items: center; gap: 1rem; }
-        .logo-mark { width: 40px; height: 40px; background: var(--deep-black); color: var(--champagne); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; }
+        .logo-mark { width: 40px; height: 40px; background: var(--bg-black); color: var(--brand-red); display: flex; align-items: center; justify-content: center; font-family: 'Oswald', serif; font-size: 1.2rem; font-weight: 600; }
         .logo-text { display: flex; flex-direction: column; }
-        .logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1; letter-spacing: 0.05em; text-transform: uppercase; }
+        .logo-text .brand { font-family: 'Oswald', serif; font-size: 1.4rem; font-weight: 600; line-height: 1; letter-spacing: 0.05em; text-transform: uppercase; }
         .logo-text .tagline { font-size: 0.7rem; font-weight: 400; color: var(--text-secondary); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
         
         .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
         .nav-links li a { font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; transition: var(--transition-fast); }
-        .nav-links li a:hover { color: var(--champagne); }
-        .nav-cta { border: 1px solid var(--deep-black); padding: 0.8rem 1.5rem; transition: var(--transition-medium) !important; }
-        .nav-cta:hover { background: var(--deep-black); color: var(--champagne) !important; }
+        .nav-links li a:hover { color: var(--brand-red); }
+        .nav-cta { border: 1px solid var(--bg-black); padding: 0.8rem 1.5rem; transition: var(--transition-medium) !important; }
+        .nav-cta:hover { background: var(--bg-black); color: var(--brand-red) !important; }
         .mobile-menu-btn { display: none; }
         @media (max-width: 992px) {
             .top-bar { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -67,16 +67,16 @@
         }
         
         /* ACCESSIBILITY & COOKIE BANNER */
-        :focus-visible { outline: 3px solid var(--champagne); outline-offset: 3px; }
+        :focus-visible { outline: 3px solid var(--brand-red); outline-offset: 3px; }
         .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100000; }
-        .skip-link:focus { left: 0; top: 0; width: auto; height: auto; background: var(--deep-black); color: var(--champagne); padding: 1rem; }
-        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); color: var(--ivory); padding: 1.5rem 5%; z-index: 99999; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(201,169,110,0.2); transform: translateY(100%); transition: transform 0.5s ease; }
+        .skip-link:focus { left: 0; top: 0; width: auto; height: auto; background: var(--bg-black); color: var(--brand-red); padding: 1rem; }
+        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0,0.95); backdrop-filter: blur(10px); color: var(--text-light); padding: 1.5rem 5%; z-index: 99999; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(230, 0, 0,0.2); transform: translateY(100%); transition: transform 0.5s ease; }
         .cookie-banner.show { transform: translateY(0); }
-        .cookie-text { font-size: 0.85rem; line-height: 1.5; color: rgba(248,246,241,0.8); max-width: 800px; }
-        .cookie-text a { color: var(--champagne); text-decoration: underline; }
+        .cookie-text { font-size: 0.85rem; line-height: 1.5; color: rgba(255, 255, 255,0.8); max-width: 800px; }
+        .cookie-text a { color: var(--brand-red); text-decoration: underline; }
         .cookie-buttons { display: flex; gap: 1rem; }
-        .cookie-btn { background: var(--champagne); color: var(--deep-black); padding: 0.8rem 1.5rem; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; cursor: pointer; transition: var(--transition-fast); }
-        .cookie-btn:hover { background: var(--gold-light); }
+        .cookie-btn { background: var(--brand-red); color: var(--bg-black); padding: 0.8rem 1.5rem; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; cursor: pointer; transition: var(--transition-fast); }
+        .cookie-btn:hover { background: var(--brand-red-light); }
     </style>
     <link rel="stylesheet" href="assets/css/estimator.css">
 </head>
@@ -114,7 +114,7 @@
             <ul class="nav-links">
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#areas">Areas</a></li>
-                <li><a href="estimate.html" style="color: var(--champagne); font-weight: 500;">Estimate</a></li>
+                <li><a href="estimate.html" style="color: var(--brand-red); font-weight: 500;">Estimate</a></li>
                 <li><a href="index.html#reviews">Reviews</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>

@@ -46,7 +46,7 @@
         .top-bar-contact a:hover { color: var(--brand-red); }
         .divider { color: var(--text-secondary); margin: 0 0.5rem; }
         
-        #navbar { padding: 1.5rem 5%; background: var(--text-light); border-bottom: 1px solid var(--border-dark); position: sticky; top: 0; z-index: 100; transition: var(--transition-medium); }
+        #navbar { padding: 1.5rem 5%; background: var(--bg-black); border-bottom: 1px solid var(--border-dark); position: sticky; top: 0; z-index: 100; transition: var(--transition-medium); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
         .logo { display: flex; align-items: center; gap: 1rem; }
         .logo-mark { width: 40px; height: 40px; background: var(--bg-black); color: var(--brand-red); display: flex; align-items: center; justify-content: center; font-family: 'Oswald', serif; font-size: 1.2rem; font-weight: 600; }
@@ -55,10 +55,10 @@
         .logo-text .tagline { font-size: 0.7rem; font-weight: 400; color: var(--text-secondary); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
         
         .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
-        .nav-links li a { font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; transition: var(--transition-fast); }
+        .nav-links li a { color: var(--text-light);  font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; transition: var(--transition-fast); }
         .nav-links li a:hover { color: var(--brand-red); }
-        .nav-cta { border: 1px solid var(--bg-black); padding: 0.8rem 1.5rem; transition: var(--transition-medium) !important; }
-        .nav-cta:hover { background: var(--bg-black); color: var(--brand-red) !important; }
+        .nav-cta { border: 1px solid var(--brand-red); color: var(--brand-red); padding: 0.8rem 1.5rem; transition: var(--transition-medium) !important; }
+        .nav-cta:hover { background: var(--brand-red); color: var(--bg-black) !important; }
         .mobile-menu-btn { display: none; }
         @media (max-width: 992px) {
             .top-bar { flex-direction: column; gap: 0.5rem; text-align: center; }

@@ -19,7 +19,8 @@ let state = {
     details: { complexity: 1, region: 1 },
     lead: {},
     baseEstimate: 0,
-    estimatedDays: '1-2'
+    estimatedDays: '1-2',
+    showModal: false
 };
 
 const app = document.getElementById('estimatorApp');
@@ -49,7 +50,7 @@ function render() {
             ` : ''}
         </div>
         
-        <div class="success-modal" id="successModal">
+        <div class="success-modal ${state.showModal ? 'active' : ''}" id="successModal">
             <div class="modal-content">
                 <h3>Success!</h3>
                 <p>Your estimate has been securely emailed to you. You can also download it as a PDF right now.</p>
@@ -126,10 +127,17 @@ function renderConfiguration() {
     if (state.category === 'boiler') {
         state.config.type = state.config.type || '3500';
         state.config.smart = state.config.smart || '0';
+        state.config.location = state.config.location || 'same';
+        
         inputs += renderRadioGroup('type', 'Type of Boiler', [
             { value: '2500', label: 'Budget Boiler', priceLabel: '~£2.5k' },
             { value: '3500', label: 'Mid-Range Boiler', priceLabel: '~£3.5k' },
             { value: '5500', label: 'Premium Boiler', priceLabel: '~£5.5k' }
+        ]);
+        inputs += renderRadioGroup('location', 'Boiler Location', [
+            { value: 'same', label: 'Same Location' },
+            { value: 'sameroom', label: 'Relocate in Same Room', priceLabel: '+£300' },
+            { value: 'newroom', label: 'Relocate to New Room/Loft', priceLabel: '+£800' }
         ]);
         inputs += renderRadioGroup('smart', 'Add Smart Controls?', [
             { value: '0', label: 'No, standard controls' },
@@ -139,10 +147,16 @@ function renderConfiguration() {
     else if (state.category === 'bathroom') {
         state.config.spec = state.config.spec || '7000';
         state.config.tile = state.config.tile || 'wet';
+        state.config.layout = state.config.layout || 'keep';
+        
         inputs += renderRadioGroup('spec', 'Specification Level', [
             { value: '7000', label: 'Standard', priceLabel: '£5k - £9k' },
             { value: '12000', label: 'Premium', priceLabel: '£9k - £15k' },
             { value: '25000', label: 'Luxury', priceLabel: '£15k+' }
+        ]);
+        inputs += renderRadioGroup('layout', 'Plumbing Layout', [
+            { value: 'keep', label: 'Keep Existing Layout' },
+            { value: 'relocate', label: 'Relocate Fixtures/Pipework', priceLabel: '+£1000' }
         ]);
         inputs += renderRadioGroup('tile', 'Tiling Scope', [
             { value: 'wet', label: 'Wet Zones Only' },
@@ -179,6 +193,8 @@ function renderConfiguration() {
     else if (state.category === 'radiator') {
         state.config.qty = state.config.qty || '3to5';
         state.config.style = state.config.style || 'standard';
+        state.config.valves = state.config.valves || 'standard';
+        
         inputs += renderRadioGroup('qty', 'Quantity', [
             { value: '1to2', label: '1 - 2 Radiators' },
             { value: '3to5', label: '3 - 5 Radiators' },
@@ -187,6 +203,10 @@ function renderConfiguration() {
         inputs += renderRadioGroup('style', 'Style', [
             { value: 'standard', label: 'Standard Panel' },
             { value: 'designer', label: 'Designer / Column' }
+        ]);
+        inputs += renderRadioGroup('valves', 'Valve Upgrade', [
+            { value: 'standard', label: 'Standard Manual' },
+            { value: 'trv', label: 'Smart / Thermostatic', priceLabel: '+£30/rad' }
         ]);
     }
     else if (state.category === 'cylinder') {
@@ -202,11 +222,23 @@ function renderConfiguration() {
         ]);
     }
     else if (state.category === 'extension') {
-        state.config.scope = state.config.scope || 'single';
-        inputs += renderRadioGroup('scope', 'Scope of Work', [
-            { value: 'single', label: 'Single Story (Kitchen)' },
-            { value: 'double', label: 'Double Story (+ Bath)' },
-            { value: 'wrap', label: 'Full Wrap-around' }
+        state.config.size = state.config.size || '20to40';
+        state.config.bathrooms = state.config.bathrooms || '0';
+        state.config.heating = state.config.heating || 'rads';
+        
+        inputs += renderRadioGroup('size', 'Extension Size', [
+            { value: 'under20', label: 'Under 20m²' },
+            { value: '20to40', label: '20m² - 40m²' },
+            { value: 'over40', label: 'Over 40m²' }
+        ]);
+        inputs += renderRadioGroup('bathrooms', 'Additional Bathrooms', [
+            { value: '0', label: 'None' },
+            { value: '1', label: '1 New Bathroom' },
+            { value: '2', label: '2+ New Bathrooms' }
+        ]);
+        inputs += renderRadioGroup('heating', 'Heating Solution', [
+            { value: 'rads', label: 'Radiators Only' },
+            { value: 'ufh', label: 'Include Underfloor Heating' }
         ]);
     }
     else if (state.category === 'softener') {
@@ -219,10 +251,16 @@ function renderConfiguration() {
     }
     else if (state.category === 'repipe') {
         state.config.size = state.config.size || '3bed';
+        state.config.occupancy = state.config.occupancy || 'empty';
+        
         inputs += renderRadioGroup('size', 'Property Size', [
             { value: 'flat', label: 'Flat / Bungalow' },
             { value: '3bed', label: '3-Bed House' },
             { value: '4bed', label: '4+ Bed House' }
+        ]);
+        inputs += renderRadioGroup('occupancy', 'Occupancy Status', [
+            { value: 'empty', label: 'Empty / Unfurnished' },
+            { value: 'occupied', label: 'Occupied Property', priceLabel: '+£1000' }
         ]);
     }
 
@@ -272,12 +310,15 @@ function calculateBase() {
     
     if (state.category === 'boiler') {
         base = parseInt(c.type) + parseInt(c.smart);
-        state.estimatedDays = '1 - 2';
+        if (c.location === 'sameroom') base += 300;
+        if (c.location === 'newroom') base += 800;
+        state.estimatedDays = c.location === 'same' ? '1 - 2' : '2 - 3';
     } else if (state.category === 'bathroom') {
         base = parseInt(c.spec);
         if (c.tile === 'half') base += 1500;
         if (c.tile === 'full') base += 3000;
-        state.estimatedDays = '5 - 10';
+        if (c.layout === 'relocate') base += 1000;
+        state.estimatedDays = c.layout === 'keep' ? '5 - 7' : '7 - 12';
     } else if (state.category === 'ufh') {
         base = c.system === 'electric' ? 1000 : 3500;
         if (c.area === 'med') base *= 1.5;
@@ -289,6 +330,8 @@ function calculateBase() {
         state.estimatedDays = '4 - 7';
     } else if (state.category === 'radiator') {
         let perRad = c.style === 'standard' ? 250 : 500;
+        if (c.valves === 'trv') perRad += 30;
+        
         if (c.qty === '1to2') base = perRad * 1.5;
         if (c.qty === '3to5') base = perRad * 4;
         if (c.qty === '6plus') base = perRad * 7;
@@ -298,10 +341,16 @@ function calculateBase() {
         if (c.cap === 'large') base += 500;
         state.estimatedDays = '1 - 2';
     } else if (state.category === 'extension') {
-        if (c.scope === 'single') base = 3000;
-        if (c.scope === 'double') base = 6000;
-        if (c.scope === 'wrap') base = 9000;
-        state.estimatedDays = '5 - 10';
+        if (c.size === 'under20') base = 3000;
+        if (c.size === '20to40') base = 5000;
+        if (c.size === 'over40') base = 8000;
+        
+        if (c.bathrooms === '1') base += 3000;
+        if (c.bathrooms === '2') base += 6000;
+        
+        if (c.heating === 'ufh') base += 2500;
+        
+        state.estimatedDays = '5 - 15';
     } else if (state.category === 'softener') {
         if (c.size === '1to2') base = 1200;
         if (c.size === '3to4') base = 1600;
@@ -311,6 +360,9 @@ function calculateBase() {
         if (c.size === 'flat') base = 4000;
         if (c.size === '3bed') base = 7000;
         if (c.size === '4bed') base = 10000;
+        
+        if (c.occupancy === 'occupied') base += 1000;
+        
         state.estimatedDays = '7 - 14';
     }
     
@@ -380,10 +432,15 @@ function nextStep() {
         state.lead.name = name;
         state.lead.email = email;
         
+        state.step++;
+        
         // Trigger mock email only if email is provided
         if (email) {
-            document.getElementById('successModal').classList.add('active');
+            state.showModal = true;
         }
+        
+        render();
+        return;
     }
     
     state.step++;
@@ -396,7 +453,8 @@ function prevStep() {
 }
 
 function closeModal() {
-    document.getElementById('successModal').classList.remove('active');
+    state.showModal = false;
+    render();
 }
 
 function downloadPDF() {

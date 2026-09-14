@@ -1,0 +1,16 @@
+<nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/images/logo-badge.jpg" alt="Hewitt Plumbing Logo" style="height: 120px; border-radius: 50%; border: 2px solid var(--brand-red); margin: 0 auto; display: block; margin-bottom: 1rem;">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#areas">Areas</a></li>
+                <li><a href="estimate.html" style="color: var(--brand-red); font-weight: 500;">Estimate</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        </div>
+    </nav>

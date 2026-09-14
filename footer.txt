@@ -1,0 +1,44 @@
+<footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="assets/images/logo-badge.jpg" alt="Hewitt Plumbing Logo" style="height: 120px; border-radius: 50%; border: 2px solid var(--brand-red); margin: 0 auto; display: block; margin-bottom: 1rem;"></a>
+                <p>Your trusted local plumber and Gas Safe registered heating engineer in St Albans, Hertfordshire. Professional, reliable, and competitively priced.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Boiler Servicing</a></li>
+                    <li><a href="#services">Boiler Repair</a></li>
+                    <li><a href="#services">Boiler Installation</a></li>
+                    <li><a href="#services">Central Heating</a></li>
+                    <li><a href="#services">Gas Cooker Install</a></li>
+                    <li><a href="#services">General Plumbing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Areas</h4>
+                <ul>
+                    <li><a href="#areas">St Albans</a></li>
+                    <li><a href="#areas">Harpenden</a></li>
+                    <li><a href="#areas">Welwyn Garden City</a></li>
+                    <li><a href="#areas">Hatfield</a></li>
+                    <li><a href="#areas">Hemel Hempstead</a></li>
+                    <li><a href="#areas">All Hertfordshire</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:07540182837">07540 182 837</a></li>
+                    <li><a href="mailto:khpah20@gmail.com">khpah20@gmail.com</a></li>
+                    <li><span>473 The Ridgeway</span></li>
+                    <li><span>St Albans, AL4 9TX</span></li>
+                    <li><span>Gas Safe #179245</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Hewitt Plumbing & Heating. All rights reserved. <a href="privacy-policy.html">Privacy Policy</a></div>
+            <div>Gas Safe Registered Engineer - St Albans, Hertfordshire</div>
+        </div>
+    </footer>

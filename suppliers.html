@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,31 +6,19 @@
     <title>Our Trusted Suppliers | Hewitt Plumbing & Heating</title>
     <meta name="description" content="Hewitt Plumbing works with industry-leading suppliers to bring you the highest quality boilers, fixtures, and parts.">
     <link rel="canonical" href="https://www.hewittplumbing.co.uk/suppliers.html" />
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* Base styles from index.html */
         :root {
-            --bg-black: #000000;
-            --bg-dark: #111111;
-            --brand-red: #e60000;
-            --brand-red-light: #ff1a1a;
-            --text-light: #ffffff;
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --text-muted: #888888;
-            --border-dark: #333333;
-            --transition-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --bg-black: #000000; --bg-dark: #111111; --brand-red: #e60000;
+            --text-primary: #ffffff; --text-secondary: #cccccc; --text-muted: #888888;
+            --border-dark: #333333; --transition-fast: all 0.3s ease; --transition-slow: all 0.7s ease;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg-black); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3, h4 { font-family: 'Oswald', serif; font-weight: 400; }
         
-        /* Top Bar & Nav */
         .top-bar { background: var(--bg-black); color: var(--border-dark); padding: 0.8rem 3rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(230,0,0,0.1); }
         .top-bar a { color: var(--brand-red); text-decoration: none; font-weight: 500; }
         nav { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-dark); }
@@ -39,29 +27,62 @@
         .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; transition: var(--transition-fast); }
         .nav-links a:hover { color: var(--text-primary); }
         .nav-cta { background: var(--bg-black); color: var(--brand-red) !important; padding: 0.7rem 1.5rem !important; border: 1px solid var(--brand-red); }
-        
-        /* Dropdown Menu */
         .dropdown { position: relative; }
         .dropdown-content { display: none; position: absolute; background: rgba(0, 0, 0, 0.98); border: 1px solid var(--border-dark); min-width: 160px; top: 100%; left: 0; flex-direction: column; z-index: 10; }
         .dropdown:hover .dropdown-content { display: flex; }
         .dropdown-content a { padding: 12px 16px; border-bottom: 1px solid var(--border-dark); }
-        .dropdown-content a:hover { background: rgba(230,0,0,0.1); }
-
-        /* Page Specific Styles */
+        
         .page-hero { padding: 6rem 3rem; text-align: center; border-bottom: 1px solid var(--border-dark); background: radial-gradient(circle at center, #1a0505 0%, var(--bg-black) 70%); }
         .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 1rem; }
         .page-hero h1 em { font-style: normal; color: var(--brand-red); }
-        .page-hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; }
+        .page-hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem;}
+
+        /* BENTO GRID LAYOUT */
+        .bento-container { max-width: 1400px; margin: 5rem auto; padding: 0 3rem; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 350px; gap: 1.5rem; }
         
-        .suppliers-grid { max-width: 1200px; margin: 4rem auto; padding: 0 3rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2rem; align-items: center; }
-        .supplier-logo { padding: 2rem; background: white; border-radius: 8px; text-align: center; display: flex; align-items: center; justify-content: center; height: 120px; transition: var(--transition-fast); text-decoration: none; border: 2px solid transparent; overflow: hidden; }
-        .supplier-logo:hover { transform: translateY(-5px); border-color: var(--brand-red); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .supplier-logo img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(100%) opacity(0.8); transition: var(--transition-fast); }
-        .supplier-logo:hover img { filter: grayscale(0%) opacity(1); }
+        .bento-card { position: relative; border-radius: 4px; overflow: hidden; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition-slow); background: var(--bg-dark); display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem; group; cursor: pointer;}
+        .bento-card:hover { transform: translateY(-5px); border-color: rgba(230,0,0,0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 2;}
+        
+        .bento-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4) grayscale(50%); transition: var(--transition-slow); z-index: 0; }
+        .bento-card:hover .bento-bg { filter: brightness(0.6) grayscale(0%); transform: scale(1.05); }
+        
+        .bento-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%); z-index: 1; transition: var(--transition-fast); }
+        .bento-card:hover .bento-overlay { background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); }
+
+        .bento-content { position: relative; z-index: 2; transform: translateY(10px); transition: var(--transition-slow); }
+        .bento-card:hover .bento-content { transform: translateY(0); }
+        
+        .bento-brand { font-family: 'Oswald', serif; font-size: 2.2rem; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1; letter-spacing: 0.02em; text-transform: uppercase; }
+        .bento-desc { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
+        .bento-link { font-size: 0.75rem; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.2em; display: inline-block; margin-top: 1rem; opacity: 0; transition: var(--transition-slow); }
+        .bento-card:hover .bento-link { opacity: 1; }
+
+        /* Grid Sizing */
+        .card-large { grid-column: span 2; grid-row: span 2; } /* Worcester */
+        .card-wide { grid-column: span 2; grid-row: span 1; } /* Vaillant, Lusso */
+        .card-tall { grid-column: span 1; grid-row: span 2; } /* Crosswater */
+        .card-square { grid-column: span 1; grid-row: span 1; } /* Hive, Nest, Mira, Aqualisa */
+
+        /* Pure Typographic Cards (For brands without images) */
+        .card-typographic .bento-bg { display: none; }
+        .card-typographic { background: radial-gradient(circle at top right, #1a0505, var(--bg-dark)); }
+        .card-typographic:hover { background: radial-gradient(circle at top right, #330000, var(--bg-dark)); }
+        .card-typographic .bento-overlay { display: none; }
+
+        @media (max-width: 1024px) {
+            .bento-container { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 300px; }
+            .card-large { grid-column: span 2; grid-row: span 2; }
+            .card-wide { grid-column: span 2; grid-row: span 1; }
+            .card-tall { grid-column: span 1; grid-row: span 1; }
+            .card-square { grid-column: span 1; grid-row: span 1; }
+        }
+        @media (max-width: 768px) {
+            .bento-container { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+            .card-large, .card-wide, .card-tall, .card-square { grid-column: span 1; grid-row: span 1; }
+        }
     </style>
 </head>
 <body>
-
     <header>
         <div class="top-bar">
             <div style="color: var(--brand-red); font-weight: 500;">Gas Safe Registered Engineer &bull; St Albans, Hertfordshire</div>
@@ -95,34 +116,89 @@
 
     <main>
         <section class="page-hero">
-            <h1>Our Trusted <em>Suppliers</em></h1>
-            <p>We only work with industry-leading manufacturers to guarantee the reliability, efficiency, and longevity of your home's infrastructure.</p>
+            <h1>Hardware & <em>Infrastructure</em></h1>
+            <p>We strictly engineer with industry-leading manufacturers. No compromises. Just absolute reliability and premium aesthetics for your home.</p>
         </section>
 
-        <section class="suppliers-grid">
-            <a href="https://www.worcester-bosch.co.uk/" target="_blank" class="supplier-logo" title="Worcester Bosch">
-                <img src="https://logo.clearbit.com/worcester-bosch.co.uk" alt="Worcester Bosch" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Worcester+Bosch'">
+        <section class="bento-container">
+            <!-- Worcester (Large Feature) -->
+            <a href="https://www.worcester-bosch.co.uk/" target="_blank" class="bento-card card-large">
+                <img src="assets/images/suppliers/supplier_worcester.jpg" alt="Worcester Bosch Boiler" class="bento-bg">
+                <div class="bento-overlay"></div>
+                <div class="bento-content">
+                    <div class="bento-brand">Worcester Bosch</div>
+                    <div class="bento-desc">Premium Heating Systems</div>
+                    <div class="bento-link">Explore Systems &rarr;</div>
+                </div>
             </a>
-            <a href="https://www.vaillant.co.uk/" target="_blank" class="supplier-logo" title="Vaillant">
-                <img src="https://logo.clearbit.com/vaillant.co.uk" alt="Vaillant" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Vaillant'">
+
+            <!-- Lusso Stone (Wide) -->
+            <a href="https://www.lussostone.com/" target="_blank" class="bento-card card-wide">
+                <img src="assets/images/suppliers/supplier_lusso.jpg" alt="Lusso Stone Bath" class="bento-bg">
+                <div class="bento-overlay"></div>
+                <div class="bento-content">
+                    <div class="bento-brand">Lusso Stone</div>
+                    <div class="bento-desc">Luxury Bathroom Architecture</div>
+                    <div class="bento-link">View Collection &rarr;</div>
+                </div>
             </a>
-            <a href="https://www.lussostone.com/" target="_blank" class="supplier-logo" title="Lusso Stone">
-                <img src="https://logo.clearbit.com/lussostone.com" alt="Lusso Stone" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Lusso+Stone'">
+
+            <!-- Crosswater (Tall) -->
+            <a href="https://www.crosswater.co.uk/" target="_blank" class="bento-card card-tall">
+                <img src="assets/images/suppliers/supplier_crosswater.jpg" alt="Crosswater Fixtures" class="bento-bg">
+                <div class="bento-overlay"></div>
+                <div class="bento-content">
+                    <div class="bento-brand">Crosswater</div>
+                    <div class="bento-desc">Designer Brassware</div>
+                    <div class="bento-link">View Fixtures &rarr;</div>
+                </div>
             </a>
-            <a href="https://www.crosswater.co.uk/" target="_blank" class="supplier-logo" title="Crosswater">
-                <img src="https://logo.clearbit.com/crosswater.co.uk" alt="Crosswater" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Crosswater'">
+
+            <!-- Vaillant (Square) -->
+            <a href="https://www.vaillant.co.uk/" target="_blank" class="bento-card card-square">
+                <img src="assets/images/suppliers/supplier_vaillant.jpg" alt="Vaillant Heat Pump" class="bento-bg">
+                <div class="bento-overlay"></div>
+                <div class="bento-content">
+                    <div class="bento-brand">Vaillant</div>
+                    <div class="bento-desc">Advanced Renewables</div>
+                    <div class="bento-link">Explore Tech &rarr;</div>
+                </div>
             </a>
-            <a href="https://www.hivehome.com/" target="_blank" class="supplier-logo" title="Hive Smart Home">
-                <img src="https://logo.clearbit.com/hivehome.com" alt="Hive" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Hive'">
+
+            <!-- Hive (Square Typographic) -->
+            <a href="https://www.hivehome.com/" target="_blank" class="bento-card card-square card-typographic">
+                <div class="bento-content">
+                    <div class="bento-brand" style="color: #FF7B00;">Hive</div>
+                    <div class="bento-desc">Smart Automation</div>
+                    <div class="bento-link" style="color: #FF7B00;">Control Your Home &rarr;</div>
+                </div>
             </a>
-            <a href="https://store.google.com/category/connected_home" target="_blank" class="supplier-logo" title="Nest">
-                <img src="https://logo.clearbit.com/nest.com" alt="Nest" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Nest'">
+
+            <!-- Nest (Square Typographic) -->
+            <a href="https://store.google.com/category/connected_home" target="_blank" class="bento-card card-square card-typographic">
+                <div class="bento-content">
+                    <div class="bento-brand" style="color: #4285F4;">Nest</div>
+                    <div class="bento-desc">Intelligent Climate</div>
+                    <div class="bento-link" style="color: #4285F4;">Discover Nest &rarr;</div>
+                </div>
             </a>
-            <a href="https://www.mirashowers.co.uk/" target="_blank" class="supplier-logo" title="Mira Showers">
-                <img src="https://logo.clearbit.com/mirashowers.co.uk" alt="Mira Showers" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Mira+Showers'">
+
+            <!-- Mira Showers (Square Typographic) -->
+            <a href="https://www.mirashowers.co.uk/" target="_blank" class="bento-card card-square card-typographic">
+                <div class="bento-content">
+                    <div class="bento-brand" style="color: #00A3E0;">Mira</div>
+                    <div class="bento-desc">Digital Showers</div>
+                    <div class="bento-link" style="color: #00A3E0;">View Showers &rarr;</div>
+                </div>
             </a>
-            <a href="https://www.aqualisa.co.uk/" target="_blank" class="supplier-logo" title="Aqualisa">
-                <img src="https://logo.clearbit.com/aqualisa.co.uk" alt="Aqualisa" onerror="this.src='https://via.placeholder.com/200x100/ffffff/333333?text=Aqualisa'">
+
+            <!-- Aqualisa (Square Typographic) -->
+            <a href="https://www.aqualisa.co.uk/" target="_blank" class="bento-card card-square card-typographic">
+                <div class="bento-content">
+                    <div class="bento-brand" style="color: #005A9C;">Aqualisa</div>
+                    <div class="bento-desc">Smart Water Tech</div>
+                    <div class="bento-link" style="color: #005A9C;">Explore Aqualisa &rarr;</div>
+                </div>
             </a>
         </section>
     </main>
@@ -130,7 +206,5 @@
     <footer style="background: var(--bg-black); padding: 4rem 3rem; text-align: center; border-top: 1px solid var(--border-dark); margin-top: 4rem;">
         <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Hewitt Plumbing & Heating. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
-

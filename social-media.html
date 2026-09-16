@@ -182,38 +182,94 @@
 
     
     
+    
     <div class="social-header" style="text-align: center; padding: 12rem 5% 4rem; background: linear-gradient(135deg, var(--bg-black) 0%, #1a0505 100%);">
         <h1 style="font-family: 'Oswald', sans-serif; font-size: 4rem; color: var(--brand-red); margin-bottom: 1rem; text-transform: uppercase;">Our Local Community</h1>
         <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); max-width: 800px; margin: 0 auto; line-height: 1.6;">As St Albans' trusted plumbing and heating contractors, we take pride in our local reputation. Explore our recent work, connect with us online, and see why Hertfordshire homeowners choose us.</p>
     </div>
 
-    <div class="social-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; padding: 4rem 5%; max-width: 1400px; margin: 0 auto;">
+    <style>
+        .social-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .social-grid-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .social-card-balanced {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 4rem 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        .social-card-balanced:hover {
+            transform: translateY(-5px);
+        }
+        .social-card-balanced.fb-card {
+            border-color: #1877F2;
+            box-shadow: 0 10px 30px rgba(24, 119, 242, 0.1);
+        }
+        .video-card-balanced {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 4rem 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+        .video-card-balanced:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+
+    <div class="social-grid-layout">
         
         <!-- Professional Google Review Widget -->
-        <div class="social-widget-container" style="background: var(--bg-card); border: 1px solid var(--border-dark); border-radius: 8px; padding: 3rem 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div style="font-size: 3rem; margin-bottom: 1rem; color: #fbbc05;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
-            <h3 style="color: var(--text-light); font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 1rem;">Share Your Experience</h3>
-            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.6;">We pride ourselves on delivering outstanding service. If we recently completed a job for you, your feedback helps us grow and assures future customers of our quality.</p>
-            <a href="https://g.page/r/leave-review" target="_blank" style="display:inline-block; padding: 1rem 2rem; background: var(--brand-red); color: var(--bg-black); text-decoration:none; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; transition: 0.3s ease;" onmouseover="this.style.background='#ff3333'" onmouseout="this.style.background='var(--brand-red)'">
+        <div class="social-card-balanced">
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 1.5rem; color: #fbbc05;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+                <h3 style="color: var(--text-light); font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 1rem;">Share Your Experience</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 3rem; line-height: 1.6;">We pride ourselves on delivering outstanding service. If we recently completed a job for you, your feedback helps us grow and assures future customers of our quality.</p>
+            </div>
+            <a href="https://g.page/r/leave-review" target="_blank" style="display:inline-block; padding: 1.2rem 2.5rem; background: var(--brand-red); color: var(--bg-black); text-decoration:none; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; transition: 0.3s ease; width: 100%; max-width: 300px;" onmouseover="this.style.background='#ff3333'" onmouseout="this.style.background='var(--brand-red)'">
                 Leave a Google Review
             </a>
         </div>
 
         <!-- Professional Facebook Widget -->
-        <div class="social-widget-container" style="background: var(--bg-card); border: 1px solid #1877F2; border-radius: 8px; padding: 3rem 2rem; text-align: center; box-shadow: 0 10px 30px rgba(24, 119, 242, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div style="font-size: 3rem; margin-bottom: 1rem; color: #1877F2;">&#128077;</div>
-            <h3 style="color: var(--text-light); font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 1rem;">Connect With Us</h3>
-            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.6;">Follow our Facebook page for updates on our latest installations, professional plumbing advice, and community news across Hertfordshire.</p>
-            <a href="https://www.facebook.com/people/Hewitt-Plumbing-Heating/61594263961594/" target="_blank" style="display:inline-block; padding: 1rem 2rem; background: #1877F2; color: #ffffff; text-decoration:none; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; transition: 0.3s ease;" onmouseover="this.style.background='#166fe5'" onmouseout="this.style.background='#1877F2'">
-                Visit Our Facebook Page
+        <div class="social-card-balanced fb-card">
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 1.5rem; color: #1877F2;">&#128077;</div>
+                <h3 style="color: var(--text-light); font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 1rem;">Connect With Us</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 3rem; line-height: 1.6;">Follow our Facebook page for updates on our latest installations, professional plumbing advice, and community news across Hertfordshire.</p>
+            </div>
+            <a href="https://www.facebook.com/people/Hewitt-Plumbing-Heating/61594263961594/" target="_blank" style="display:inline-block; padding: 1.2rem 2.5rem; background: #1877F2; color: #ffffff; text-decoration:none; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; transition: 0.3s ease; width: 100%; max-width: 300px;" onmouseover="this.style.background='#166fe5'" onmouseout="this.style.background='#1877F2'">
+                Visit Facebook Page
             </a>
         </div>
 
         <!-- The Ultimate Community Video -->
-        <div class="social-widget-container" style="background: var(--bg-card); border: 1px solid var(--border-dark); border-radius: 8px; padding: 3rem 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); grid-column: 1 / -1; max-width: 800px; margin: 0 auto; margin-top: 2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="video-card-balanced">
             <h3 style="color: var(--brand-red); font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 1rem;">Our Promise To You</h3>
-            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">As your local St Albans plumbers, we have a very strict code of conduct that we swear by on every single job.</p>
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 3rem; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">As your local St Albans plumbers, we have a very strict code of conduct that we swear by on every single job.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); max-width: 1000px; margin: 0 auto;">
                 <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>

@@ -1,4 +1,32 @@
-User-agent: *
+User-agent: Googlebot
 Allow: /
+User-agent: Bingbot
+Allow: /
+
+# Block LLM Scrapers from stealing proprietary content
+User-agent: CCBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: GPTBot
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: Omgilibot
+Disallow: /
+User-agent: FacebookBot
+Disallow: /
+
+# Allow Google Extended for SGE indexing
+User-agent: Google-Extended
+Allow: /
+
+# Protect internal/sensitive directories
+User-agent: *
+Disallow: /assets/private/
+Disallow: /admin/
+Disallow: /*?*
 
 Sitemap: https://www.hewittplumbing.co.uk/sitemap.xml

@@ -1,131 +1,249 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Hewitt Plumbing & Heating</title>
-    <meta name="description" content="Privacy Policy and Data Protection Information for Hewitt Plumbing & Heating.">
+    <meta name="description" content="UK GDPR Compliant Privacy Policy for Hewitt Plumbing & Heating.">
     <link rel="canonical" href="https://www.hewittplumbing.co.uk/privacy-policy.html" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    
+
     <style>
+        /* Base styles from index.html */
         :root {
-            --deep-black: #0a0a0a;
-            --charcoal: #141414;
-            --champagne: #c9a96e;
-            --gold-light: #d4b87a;
-            --ivory: #f8f6f1;
-            --warm-white: #faf9f7;
-            --stone: #e5e0d8;
-            --text-primary: #1a1a1a;
-            --text-secondary: #4a4a4a;
-            --text-muted: #7a7a7a;
+            --bg-black: #000000;
+            --bg-dark: #111111;
+            --brand-red: #e60000;
+            --brand-red-light: #ff1a1a;
+            --text-light: #ffffff;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border-dark: #333333;
+            --transition-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--text-primary); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; margin-bottom: 1rem; color: var(--deep-black); }
-        .top-bar { background-color: var(--deep-black); color: var(--ivory); padding: 0.8rem 5%; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.05em; font-weight: 300; }
-        .top-bar-contact { display: flex; gap: 2rem; }
-        .top-bar-contact a:hover { color: var(--champagne); }
-        #navbar { padding: 1.5rem 5%; background: var(--ivory); border-bottom: 1px solid var(--stone); position: sticky; top: 0; z-index: 100; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
-        .logo { display: flex; align-items: center; gap: 1rem; }
-        .logo-mark { width: 40px; height: 40px; background: var(--deep-black); color: var(--champagne); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; }
-        .logo-text { display: flex; flex-direction: column; }
-        .logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1; letter-spacing: 0.05em; text-transform: uppercase; }
-        .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
-        .nav-links li a { font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; }
-        .nav-links li a:hover { color: var(--champagne); }
-        .content { max-width: 800px; margin: 4rem auto; padding: 0 5%; }
-        .content h1 { font-size: 2.5rem; margin-bottom: 2rem; border-bottom: 2px solid var(--champagne); padding-bottom: 1rem; }
-        .content h2 { font-size: 1.8rem; margin-top: 2.5rem; }
-        .content p { margin-bottom: 1.2rem; color: var(--text-secondary); }
-        .content ul { margin-bottom: 1.5rem; padding-left: 2rem; color: var(--text-secondary); }
-        .content li { margin-bottom: 0.5rem; }
-        .footer-simple { background: var(--deep-black); color: var(--ivory); padding: 2rem 5%; text-align: center; font-size: 0.8rem; margin-top: 4rem; }
-        :focus-visible { outline: 3px solid var(--champagne); outline-offset: 2px; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-black); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Oswald', serif; font-weight: 400; }
+        
+        /* Top Bar & Nav */
+        .top-bar { background: var(--bg-black); color: var(--border-dark); padding: 0.8rem 3rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(230,0,0,0.1); }
+        .top-bar a { color: var(--brand-red); text-decoration: none; font-weight: 500; }
+        nav { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-dark); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: space-between; align-items: center; height: 90px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; transition: var(--transition-fast); }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--bg-black); color: var(--brand-red) !important; padding: 0.7rem 1.5rem !important; border: 1px solid var(--brand-red); }
+        
+        /* Dropdown Menu */
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; background: rgba(0, 0, 0, 0.98); border: 1px solid var(--border-dark); min-width: 160px; top: 100%; left: 0; flex-direction: column; z-index: 10; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .dropdown-content a { padding: 12px 16px; border-bottom: 1px solid var(--border-dark); }
+        .dropdown-content a:hover { background: rgba(230,0,0,0.1); }
+
+        /* Tips Page Specific Styles */
+        .tips-hero { padding: 6rem 3rem; text-align: center; border-bottom: 1px solid var(--border-dark); background: radial-gradient(circle at center, #1a0505 0%, var(--bg-black) 70%); }
+        .tips-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 1rem; }
+        .tips-hero h1 em { font-style: normal; color: var(--brand-red); }
+        .tips-hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; }
+        .search-container { max-width: 500px; margin: 0 auto; position: relative; }
+        .search-container input { width: 100%; padding: 1rem 1.5rem; border-radius: 30px; border: 1px solid var(--border-dark); background: rgba(255,255,255,0.05); color: white; outline: none; font-family: 'Inter'; }
+        .search-container input:focus { border-color: var(--brand-red); }
+
+        .filter-nav { padding: 2rem 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--border-dark); position: sticky; top: 90px; background: rgba(0,0,0,0.9); z-index: 900; backdrop-filter: blur(10px); }
+        .filter-pill { padding: 0.6rem 1.5rem; border-radius: 20px; border: 1px solid var(--border-dark); background: transparent; color: var(--text-secondary); cursor: pointer; transition: var(--transition-fast); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; }
+        .filter-pill:hover, .filter-pill.active { background: var(--brand-red); color: white; border-color: var(--brand-red); }
+
+        .tips-grid { max-width: 1400px; margin: 4rem auto; padding: 0 3rem; display: flex; flex-direction: column; gap: 3rem; }
+        
+        .tip-card { display: flex; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border-dark); overflow: hidden; transition: var(--transition-fast); }
+        .tip-card:hover { border-color: rgba(230,0,0,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .tip-media { flex: 0 0 45%; position: relative; background: #000; display: flex; align-items: center; justify-content: center; }
+        
+        .facade-wrapper { position: relative; width: 100%; height: 100%; min-height: 300px; cursor: pointer; overflow: hidden; }
+        .facade-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
+        .facade-wrapper:hover .facade-img { opacity: 0.8; transform: scale(1.02); }
+        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(230,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: 0.3s; }
+        .play-button::after { content: ''; display: block; border-left: 15px solid white; border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 5px; }
+        .facade-wrapper:hover .play-button { transform: translate(-50%, -50%) scale(1.1); }
+        
+        .tip-content { padding: 2.5rem; flex: 1; display: flex; flex-direction: column; }
+        .tip-meta { display: flex; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--brand-red); letter-spacing: 0.1em; margin-bottom: 1rem; align-items: center; }
+        .tip-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+        .tip-title { font-size: 1.8rem; margin-bottom: 1rem; line-height: 1.2; }
+        .expert-take { background: rgba(230,0,0,0.05); border-left: 3px solid var(--brand-red); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 0 8px 8px 0; }
+        .expert-take h4 { font-size: 0.85rem; text-transform: uppercase; color: var(--brand-red); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .expert-take p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+        
+        .tip-cta { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-dark); }
+        .tip-cta a { color: var(--text-primary); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.3s; }
+        .tip-cta a:hover { color: var(--brand-red); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .tip-card { flex-direction: column; }
+            .tip-media { min-height: 250px; }
+        }
+        @media (max-width: 768px) {
+            .tips-grid { display: flex; flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 1.5rem; gap: 1.5rem; scrollbar-width: none; }
+            .tips-grid::-webkit-scrollbar { display: none; }
+            .tip-card { scroll-snap-align: center; min-width: 85vw; flex: 0 0 85vw; flex-direction: column; }
+            .filter-nav { padding: 1rem; justify-content: flex-start; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; }
+        }
     </style>
 </head>
 <body>
-    <a href="#main-content" style="position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;" tabindex="1">Skip to main content</a>
-    <div class="top-bar">
-        <div>Gas Safe Registered Engineer &bull; St Albans, Hertfordshire</div>
-        <div class="top-bar-contact">
-            <a href="tel:07540182837" aria-label="Call us">07540 182 837</a>
-            <span style="color: var(--text-secondary); margin: 0 0.5rem;">|</span>
-            <a href="mailto:khpah20@gmail.com" aria-label="Email us">khpah20@gmail.com</a>
+
+    <header>
+        <div class="top-bar">
+            <div style="color: var(--brand-red); font-weight: 500;">Gas Safe Registered Engineer &bull; St Albans, Hertfordshire</div>
+            <div><a href="tel:07540182837">07540 182 837</a> <span style="margin:0 10px; color:#333;">|</span> <a href="mailto:khpah20@gmail.com">khpah20@gmail.com</a></div>
         </div>
-    </div>
-
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo" aria-label="Hewitt Plumbing Home">
-                <div class="logo-mark" aria-hidden="true"><span>HP</span></div>
-                <div class="logo-text" aria-hidden="true">
-                    <span class="brand">Hewitt</span>
-                    <span class="tagline">Plumbing & Heating</span>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main id="main-content" class="content">
-        <h1>Privacy Policy</h1>
-        <p><strong>Last updated:</strong> June 2026</p>
-        
-        <h2>1. Introduction</h2>
-        <p>Welcome to Hewitt Plumbing & Heating. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
-
-        <h2>2. The data we collect about you</h2>
-        <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
-        <ul>
-            <li><strong>Identity Data:</strong> includes first name, last name, or similar identifier.</li>
-            <li><strong>Contact Data:</strong> includes billing address, delivery address, email address and telephone numbers.</li>
-            <li><strong>Technical Data:</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
-            <li><strong>Usage Data:</strong> includes information about how you use our website and services (e.g. Estimation Tool data).</li>
-        </ul>
-
-        <h2>3. How is your personal data collected?</h2>
-        <p>We use different methods to collect data from and about you including through:</p>
-        <ul>
-            <li><strong>Direct interactions.</strong> You may give us your Identity and Contact Data by filling in forms or by corresponding with us by post, phone, email or otherwise. This includes personal data you provide when you:
-                <ul>
-                    <li>Use our online estimation tool;</li>
-                    <li>Request a quote via our contact form;</li>
-                    <li>Request marketing to be sent to you;</li>
-                    <li>Give us feedback or contact us.</li>
+        <nav id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo-badge.jpg" alt="Hewitt Plumbing Logo" style="height: 50px; border-radius: 50%; border: 2px solid var(--brand-red);">
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#areas">Areas</a></li>
+                    <li><a href="estimate.html">Estimator</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li class="dropdown">
+                        <a href="#" style="cursor: default;">More &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="projects.html">Projects</a>
+                            <a href="suppliers.html">Suppliers</a>
+                            <a href="tips.html" style="color: var(--brand-red);">Hints & Tips</a>
+                            <a href="social-media.html">Social Media</a>
+                            <a href="index.html#about">About</a>
+                        </div>
+                    </li>
+                    <li><a href="index.html#quote-form" class="nav-cta">Get a Quote</a></li>
                 </ul>
-            </li>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+    <main style="max-width: 800px; margin: 4rem auto; padding: 0 3rem; background: var(--bg-black); color: var(--text-primary);">
+        <h1 style="font-size: 2.5rem; margin-bottom: 2rem; border-bottom: 2px solid var(--brand-red); padding-bottom: 1rem; font-family: 'Oswald', serif; text-transform: uppercase;">Privacy Policy</h1>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;"><strong>Last updated:</strong> June 2026</p>
+        
+        <h2 style="font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--brand-red); font-family: 'Oswald', serif;">1. Introduction</h2>
+        <p style="margin-bottom: 1.2rem; color: var(--text-secondary);">Welcome to Hewitt Plumbing & Heating. We respect your privacy and are committed to protecting your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. This privacy policy informs you how we handle your personal data, your privacy rights, and how the law protects you.</p>
+
+        <h2 style="font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--brand-red); font-family: 'Oswald', serif;">2. Data Controller</h2>
+        <p style="margin-bottom: 1.2rem; color: var(--text-secondary);">Hewitt Plumbing & Heating is the data controller and responsible for your personal data. If you have any questions about this privacy policy, please contact us at:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 2rem; color: var(--text-secondary);">
+            <li style="margin-bottom: 0.5rem;"><strong>Email:</strong> khpah20@gmail.com</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Phone:</strong> 07540 182 837</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Address:</strong> 473 The Ridgeway, St Albans, Hertfordshire, AL4 9TX</li>
         </ul>
 
-        <h2>4. How we use your personal data</h2>
-        <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
-        <ul>
-            <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., providing a quote or performing plumbing services).</li>
-            <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-            <li>Where we need to comply with a legal obligation.</li>
+        <h2 style="font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--brand-red); font-family: 'Oswald', serif;">3. The Data We Collect</h2>
+        <p style="margin-bottom: 1.2rem; color: var(--text-secondary);">We may collect, use, store and transfer different kinds of personal data about you, including:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 2rem; color: var(--text-secondary);">
+            <li style="margin-bottom: 0.5rem;"><strong>Identity Data:</strong> First name, last name.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Contact Data:</strong> Billing address, service address, email address, and telephone numbers.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Technical Data:</strong> IP address, browser type and version, time zone setting, browser plug-in types, operating system, and platform.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Usage Data:</strong> Information about how you use our website, online estimation tool, and services.</li>
         </ul>
 
-        <h2>5. Cookies</h2>
-        <p>You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.</p>
+        <h2 style="font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--brand-red); font-family: 'Oswald', serif;">4. How We Use Your Data (Lawful Basis)</h2>
+        <p style="margin-bottom: 1.2rem; color: var(--text-secondary);">We will only use your personal data when the law allows us to. The lawful bases we rely on are:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 2rem; color: var(--text-secondary);">
+            <li style="margin-bottom: 0.5rem;"><strong>Performance of a Contract:</strong> To provide you with quotes, carry out plumbing/heating services, and process payments.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Legitimate Interests:</strong> To run our business, keep our records updated, and study how customers use our services.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Legal Obligation:</strong> To comply with tax, accounting, and Gas Safe Register regulatory requirements.</li>
+        </ul>
 
-        <h2>6. Contact Details</h2>
-        <p>If you have any questions about this privacy policy or our privacy practices, please contact us in the following ways:</p>
-        <p>
-            Email address: khpah20@gmail.com<br>
-            Postal address: 473 The Ridgeway, St Albans, Hertfordshire, AL4 9TX<br>
-            Telephone number: 07540 182 837
-        </p>
+        <h2 style="font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--brand-red); font-family: 'Oswald', serif;">5. Data Retention & Sharing</h2>
+        <p style="margin-bottom: 1.2rem; color: var(--text-secondary);">We will only retain your personal data for as long as reasonably necessary to fulfil the purposes we collected it for. By law, we have to keep basic information about our customers (including Contact and Identity Data) for six years for tax purposes. We may share your data with trusted third parties, such as the Gas Safe Register (to notify building control of installations) and our accounting software providers, under strict confidentiality agreements.</p>
+
+        <h2 style="font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--brand-red); font-family: 'Oswald', serif;">6. Your Legal Rights</h2>
+        <p style="margin-bottom: 1.2rem; color: var(--text-secondary);">Under UK data protection laws, you have rights including:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 2rem; color: var(--text-secondary);">
+            <li style="margin-bottom: 0.5rem;"><strong>Request access:</strong> To your personal data (a "data subject access request").</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Request correction:</strong> Of the personal data that we hold about you.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Request erasure:</strong> Of your personal data.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Object to processing:</strong> Of your personal data.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Request restriction:</strong> Of processing your personal data.</li>
+        </ul>
+        <p style="margin-bottom: 1.2rem; color: var(--text-secondary);">You have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection (www.ico.org.uk).</p>
     </main>
 
-    <footer class="footer-simple">
-        <div>&copy; 2026 Hewitt Plumbing & Heating. All rights reserved. Gas Safe Registered Engineer No. 179245.</div>
+</main>
+<footer style="background: var(--bg-black); padding: 4rem 3rem; text-align: center; border-top: 1px solid var(--border-dark);">
+        <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Hewitt Plumbing & Heating. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Facade Loading Logic
+        function loadVideo(element, videoUrl) {
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', videoUrl + "?autoplay=1");
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', 'true');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            
+            element.innerHTML = '';
+            element.appendChild(iframe);
+        }
+
+        // Dynamic Filtering
+        function setFilter(category) {
+            document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            applyFilters(category, searchVal);
+        }
+
+        function filterTips() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const activePill = document.querySelector('.filter-pill.active');
+            let activeCategory = 'all';
+            
+            if(activePill && activePill.innerText.toLowerCase().includes('boiler')) activeCategory = 'boiler';
+            else if(activePill && activePill.innerText.toLowerCase().includes('fixtures')) activeCategory = 'fixtures';
+            else if(activePill && activePill.innerText.toLowerCase().includes('hard')) activeCategory = 'hardwater';
+            else if(activePill && activePill.innerText.toLowerCase().includes('emergency')) activeCategory = 'emergency';
+            
+            applyFilters(activeCategory, searchVal);
+        }
+
+        function applyFilters(category, searchVal) {
+            const cards = document.querySelectorAll('.tip-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                const cardCategory = card.getAttribute('data-category');
+                
+                const matchesSearch = text.includes(searchVal);
+                const matchesCategory = category === 'all' || cardCategory.includes(category);
+                
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
+

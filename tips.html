@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Expertise | Hewitt Plumbing & Heating</title>
+    <meta name="description" content="Expert insights and masterclasses for your home's infrastructure. Curated plumbing and heating tips for St Albans and Hertfordshire residents.">
+    <link rel="canonical" href="https://www.hewittplumbing.co.uk/tips.html" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How to bleed a radiator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check your boiler pressure, turn off the heating, use a radiator key to open the valve until water appears, then close it. Re-pressurize the boiler if needed."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What to do if boiler pressure is low?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Locate the filling loop underneath the boiler, open the valves slowly until the pressure gauge reads between 1 and 1.5 bar, then securely close the valves."
+        }
+
+      }, {
+        "@type": "Question",
+        "name": "Where is my main stopcock located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In older St Albans properties, the internal stopcock is often located under the kitchen sink, or sometimes in a downstairs WC or under the stairs. Turn it clockwise to shut off the water instantly."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I thaw a frozen condensate pipe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pour warm (not boiling!) water over the white plastic pipe outside to thaw it, then reset the boiler."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What should I do if I smell gas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open all windows, turn off the gas at the meter, do NOT turn on light switches, and call the National Gas Emergency Number immediately on 0800 111999."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why is my shower pressure dropping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Hertfordshire, limescale buildup inside the showerhead is the usual suspect. Unscrew the head and soak it in a descaling solution or vinegar overnight."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How to fix a stuck radiator valve (TRV)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Remove the plastic TRV head and gently tap the metal pin with a flathead screwdriver to free it."
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        /* Base styles from index.html */
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #111111;
+            --brand-red: #e60000;
+            --brand-red-light: #ff1a1a;
+            --text-light: #ffffff;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border-dark: #333333;
+            --transition-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-black); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Oswald', serif; font-weight: 400; }
+        
+        /* Top Bar & Nav */
+        .top-bar { background: var(--bg-black); color: var(--border-dark); padding: 0.8rem 3rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(230,0,0,0.1); }
+        .top-bar a { color: var(--brand-red); text-decoration: none; font-weight: 500; }
+        nav { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-dark); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: space-between; align-items: center; height: 90px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; transition: var(--transition-fast); }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--bg-black); color: var(--brand-red) !important; padding: 0.7rem 1.5rem !important; border: 1px solid var(--brand-red); }
+        
+        /* Dropdown Menu */
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; background: rgba(0, 0, 0, 0.98); border: 1px solid var(--border-dark); min-width: 160px; top: 100%; left: 0; flex-direction: column; z-index: 10; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .dropdown-content a { padding: 12px 16px; border-bottom: 1px solid var(--border-dark); }
+        .dropdown-content a:hover { background: rgba(230,0,0,0.1); }
+
+        /* Tips Page Specific Styles */
+        .tips-hero { padding: 6rem 3rem; text-align: center; border-bottom: 1px solid var(--border-dark); background: radial-gradient(circle at center, #1a0505 0%, var(--bg-black) 70%); }
+        .tips-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 1rem; }
+        .tips-hero h1 em { font-style: normal; color: var(--brand-red); }
+        .tips-hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; }
+        .search-container { max-width: 500px; margin: 0 auto; position: relative; }
+        .search-container input { width: 100%; padding: 1rem 1.5rem; border-radius: 30px; border: 1px solid var(--border-dark); background: rgba(255,255,255,0.05); color: white; outline: none; font-family: 'Inter'; }
+        .search-container input:focus { border-color: var(--brand-red); }
+
+        .filter-nav { padding: 2rem 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--border-dark); position: sticky; top: 90px; background: rgba(0,0,0,0.9); z-index: 900; backdrop-filter: blur(10px); }
+        .filter-pill { padding: 0.6rem 1.5rem; border-radius: 20px; border: 1px solid var(--border-dark); background: transparent; color: var(--text-secondary); cursor: pointer; transition: var(--transition-fast); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; }
+        .filter-pill:hover, .filter-pill.active { background: var(--brand-red); color: white; border-color: var(--brand-red); }
+
+        .tips-grid { max-width: 1400px; margin: 4rem auto; padding: 0 3rem; display: flex; flex-direction: column; gap: 3rem; }
+        
+        .tip-card { display: flex; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border-dark); overflow: hidden; transition: var(--transition-fast); }
+        .tip-card:hover { border-color: rgba(230,0,0,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .tip-media { flex: 0 0 45%; position: relative; background: #000; display: flex; align-items: center; justify-content: center; }
+        
+        .facade-wrapper { position: relative; width: 100%; height: 100%; min-height: 300px; cursor: pointer; overflow: hidden; }
+        .facade-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
+        .facade-wrapper:hover .facade-img { opacity: 0.8; transform: scale(1.02); }
+        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(230,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: 0.3s; }
+        .play-button::after { content: ''; display: block; border-left: 15px solid white; border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 5px; }
+        .facade-wrapper:hover .play-button { transform: translate(-50%, -50%) scale(1.1); }
+        
+        .tip-content { padding: 2.5rem; flex: 1; display: flex; flex-direction: column; }
+        .tip-meta { display: flex; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--brand-red); letter-spacing: 0.1em; margin-bottom: 1rem; align-items: center; }
+        .tip-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+        .tip-title { font-size: 1.8rem; margin-bottom: 1rem; line-height: 1.2; }
+        .expert-take { background: rgba(230,0,0,0.05); border-left: 3px solid var(--brand-red); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 0 8px 8px 0; }
+        .expert-take h4 { font-size: 0.85rem; text-transform: uppercase; color: var(--brand-red); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .expert-take p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+        
+        .tip-cta { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-dark); }
+        .tip-cta a { color: var(--text-primary); text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.3s; }
+        .tip-cta a:hover { color: var(--brand-red); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .tip-card { flex-direction: column; }
+            .tip-media { min-height: 250px; }
+        }
+        @media (max-width: 768px) {
+            .tips-grid { display: flex; flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 1.5rem; gap: 1.5rem; scrollbar-width: none; }
+            .tips-grid::-webkit-scrollbar { display: none; }
+            .tip-card { scroll-snap-align: center; min-width: 85vw; flex: 0 0 85vw; flex-direction: column; }
+            .filter-nav { padding: 1rem; justify-content: flex-start; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div style="color: var(--brand-red); font-weight: 500;">Gas Safe Registered Engineer &bull; St Albans, Hertfordshire</div>
+            <div><a href="tel:07540182837">07540 182 837</a> <span style="margin:0 10px; color:#333;">|</span> <a href="mailto:khpah20@gmail.com">khpah20@gmail.com</a></div>
+        </div>
+        <nav id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo-badge.jpg" alt="Hewitt Plumbing Logo" style="height: 50px; border-radius: 50%; border: 2px solid var(--brand-red);">
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#areas">Areas</a></li>
+                    <li><a href="estimate.html">Estimator</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li class="dropdown">
+                        <a href="#" style="cursor: default;">More &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="projects.html">Projects</a>
+                            <a href="suppliers.html">Suppliers</a>
+                            <a href="tips.html" style="color: var(--brand-red);">Hints & Tips</a>
+                            <a href="social-media.html">Social Media</a>
+                            <a href="index.html#about">About</a>
+                        </div>
+                    </li>
+                    <li><a href="index.html#quote-form" class="nav-cta">Get a Quote</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tips-hero">
+            <h1>The Masterclass:<br><em>Insights for Your Home</em></h1>
+            <p>Curated expertise to protect your investments. Search our masterclasses below or browse by category.</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for 'leaking radiator', 'low pressure'..." onkeyup="filterTips()">
+            </div>
+        </section>
+
+        <div class="filter-nav">
+            <button class="filter-pill active" onclick="setFilter('all')">All Insights</button>
+            <button class="filter-pill" onclick="setFilter('boiler')">Boiler Health</button>
+            <button class="filter-pill" onclick="setFilter('fixtures')">Luxury Fixtures</button>
+            <button class="filter-pill" onclick="setFilter('hardwater')">Hard Water Care</button>
+            <button class="filter-pill" onclick="setFilter('emergency')">Emergency Triage</button>
+        </div>
+
+        <section class="tips-grid" id="tipsGrid">
+            
+            <!-- Card 1 -->
+            <article class="tip-card" data-category="boiler emergency">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/zUsBw1ZpiKY')">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Boiler pressure gauge" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#9654; 2 Min Watch</span>
+                        <span>&bull; Curated Video</span>
+                    </div>
+                    <h2 class="tip-title">How to Safely Re-pressurize Your Boiler</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>This tutorial from Worcester Bosch is excellent. However, remember that in St Albans, our extremely hard water means filling loops can sometimes stiffen. Turn the valves slowly. If it reads over 1.5 bar, you may need to bleed a radiator to release the excess.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Not comfortable doing this yourself? Book a St Albans engineer now. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="tip-card" data-category="hardwater fixtures">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
+                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Luxury shower head" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 3 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">Protecting Luxury Matte Black Brassware from Limescale</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>Hertfordshire has some of the hardest water in the UK. Never use harsh chemical descalers on Lusso Stone or Crosswater matte black finishes. Use a 50/50 mix of white vinegar and water, apply gently with a microfiber cloth, and rinse immediately. Better yet, install a whole-house water softener to protect your investment.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Need a water softener installed? Get a free consultation. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="tip-card" data-category="emergency boiler">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/3iFyHf4in8k')">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Radiator valve" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#9654; 1 Min Watch</span>
+                        <span>&bull; Curated Social Reel</span>
+                    </div>
+                    <h2 class="tip-title">Emergency Triage: How to Isolate a Leaking Radiator Valve</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>If you spot a leak on your valve, the quickest way to prevent carpet damage is isolation. Turn the TRV (Thermostatic Radiator Valve) to zero, and use an adjustable spanner to turn the lockshield valve clockwise until it stops. Count the turns so we can re-balance it later!</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="tel:07540182837">Have an active leak? Call our emergency line immediately. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Card 4 -->
+            <article class="tip-card" data-category="emergency">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/ZspLxzCsr7I')">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Stopcock" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 2 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">Finding & Turning Off Your Main Stopcock</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>In a burst pipe emergency, every second counts. In older St Albans and Hertfordshire properties, the internal stopcock is often located under the kitchen sink, or sometimes in a downstairs WC or under the stairs. Turn it clockwise to shut off the water instantly.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="tel:07540182837">Burst pipe? Call our emergency line immediately. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="tip-card" data-category="boiler">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/GP3KxAyNI6s')">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Bleeding a radiator" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#9654; 2 Min Watch</span>
+                        <span>&bull; Curated Video</span>
+                    </div>
+                    <h2 class="tip-title">How to Bleed Your Radiators for Maximum Heat</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>If your radiators are cold at the top, they need bleeding. Turn off your heating first. Start from the ground floor and work up. Have a cloth ready, open the valve with a radiator key until water dribbles out, then close tight. Check boiler pressure afterwards!</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Need a full central heating service? Book an engineer. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="tip-card" data-category="boiler emergency">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/s3STTuDhFRQ')">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Frozen pipe" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 3 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">Thawing a Frozen Condensate Pipe</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>During freezing Hertfordshire winters, your boiler might stop working and show a fault code. It's often a frozen white plastic pipe outside. Pour warm (not boiling!) water over the pipe to thaw it, then reset the boiler.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="tel:07540182837">Boiler still won't reset? Call us for a fast response. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="tip-card" data-category="fixtures hardwater">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/AUhqZEVngYc')">
+                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Chrome taps" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#9654; 1 Min Watch</span>
+                        <span>&bull; Curated Social Reel</span>
+                    </div>
+                    <h2 class="tip-title">Removing Hard Water Limescale from Chrome</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>St Albans has very hard water. Don't use abrasive pads on luxury chrome fixtures. Soak a cloth in white vinegar, wrap it around the tap, and leave for an hour. The limescale will wipe away without scratching the finish.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Looking to upgrade your bathroom fixtures? Get a quote. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="tip-card" data-category="emergency boiler">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/8OtBXU0YC2M')">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Outdoor pipes" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 2 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">Winter-Proofing Outdoor Pipework</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>Prevent burst pipes in winter by insulating outdoor taps and exposed pipes with foam lagging. It's a cheap fix that saves thousands in water damage when temperatures drop in the Home Counties.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Need professional pipe insulation? Enquire now. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 9 -->
+            <article class="tip-card" data-category="fixtures hardwater">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/fcf1yr6Yokg')">
+                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Shower head" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 3 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">Why is My Shower Pressure Dropping?</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>If your shower pressure is suddenly weak, limescale buildup inside the showerhead is the usual suspect in Herts. Unscrew the head and soak it in a descaling solution or vinegar overnight. If the problem persists, it could be a pump issue.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Low pressure persists? Have our experts take a look. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 10 -->
+            <article class="tip-card" data-category="boiler fixtures">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/IC79vuzKsu8')">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Radiator valve" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#9654; 1 Min Watch</span>
+                        <span>&bull; Curated Social Reel</span>
+                    </div>
+                    <h2 class="tip-title">Fixing a Stuck Radiator Valve (TRV)</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>If a single radiator stays cold while the rest are hot, the pin inside the TRV might be stuck. Remove the plastic TRV head and gently tap the metal pin with a flathead screwdriver to free it.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Need replacement valves installed? Get a quote. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 11 -->
+            <article class="tip-card" data-category="boiler hardwater">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Black sludge powerflush" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 3 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">Signs You Need a Powerflush</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>Black sludge in your radiators destroys efficiency and ruins boilers. If your radiators have cold spots at the bottom, or your boiler is unusually noisy, it's time for a professional powerflush to clear the system and protect your heating loop.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Book a professional powerflush for your system. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 12 -->
+            <article class="tip-card" data-category="emergency">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Gas meter" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 2 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">What to Do If You Smell Gas</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>Never ignore a gas smell. Open all windows, turn off the gas at the meter (usually in a box outside or under the stairs), do NOT turn on light switches, and call the National Gas Emergency Number immediately on 0800 111999.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="tel:0800111999">Smell gas? Call 0800 111999 immediately.</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 13 -->
+            <article class="tip-card" data-category="hardwater fixtures">
+                <div class="tip-media">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
+                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Water softener" class="facade-img" loading="lazy">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                <div class="tip-content">
+                    <div class="tip-meta">
+                        <span>&#128196; 4 Min Read</span>
+                        <span>&bull; Internal Article</span>
+                    </div>
+                    <h2 class="tip-title">Protecting Your Home with a Water Softener</h2>
+                    <div class="expert-take">
+                        <h4>Our Engineer's Take:</h4>
+                        <p>Hertfordshire's chalky bedrock means extremely hard water. A whole-house water softener not only protects luxury bathrooms from scale, but extends the life of your boiler and washing machine significantly.</p>
+                    </div>
+                    <div class="tip-cta">
+                        <a href="index.html#quote-form">Request a quote for a whole-house water softener. &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer style="background: var(--bg-black); padding: 4rem 3rem; text-align: center; border-top: 1px solid var(--border-dark);">
+        <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Hewitt Plumbing & Heating. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Facade Loading Logic
+        function loadVideo(element, videoUrl) {
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', videoUrl + "?autoplay=1");
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', 'true');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            
+            element.innerHTML = '';
+            element.appendChild(iframe);
+        }
+
+        // Dynamic Filtering
+        function setFilter(category) {
+            document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            applyFilters(category, searchVal);
+        }
+
+        function filterTips() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const activePill = document.querySelector('.filter-pill.active');
+            let activeCategory = 'all';
+            
+            if(activePill && activePill.innerText.toLowerCase().includes('boiler')) activeCategory = 'boiler';
+            else if(activePill && activePill.innerText.toLowerCase().includes('fixtures')) activeCategory = 'fixtures';
+            else if(activePill && activePill.innerText.toLowerCase().includes('hard')) activeCategory = 'hardwater';
+            else if(activePill && activePill.innerText.toLowerCase().includes('emergency')) activeCategory = 'emergency';
+            
+            applyFilters(activeCategory, searchVal);
+        }
+
+        function applyFilters(category, searchVal) {
+            const cards = document.querySelectorAll('.tip-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                const cardCategory = card.getAttribute('data-category');
+                
+                const matchesSearch = text.includes(searchVal);
+                const matchesCategory = category === 'all' || cardCategory.includes(category);
+                
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

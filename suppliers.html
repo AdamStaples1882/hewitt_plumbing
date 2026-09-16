@@ -61,7 +61,8 @@
         .card-large { grid-column: span 2; grid-row: span 2; } /* Worcester */
         .card-wide { grid-column: span 2; grid-row: span 1; } /* Vaillant, Lusso */
         .card-tall { grid-column: span 1; grid-row: span 2; } /* Crosswater */
-        .card-square { grid-column: span 1; grid-row: span 1; } /* Hive, Nest, Mira, Aqualisa */
+        .card-square { grid-column: span 1; grid-row: span 1; }
+        .card-superwide { grid-column: span 4; grid-row: span 1; } /* Hive, Nest, Mira, Aqualisa */
 
         /* Pure Typographic Cards (For brands without images) */
         .card-typographic .bento-bg { display: none; }
@@ -78,7 +79,7 @@
         }
         @media (max-width: 768px) {
             .bento-container { grid-template-columns: 1fr; grid-auto-rows: 250px; }
-            .card-large, .card-wide, .card-tall, .card-square { grid-column: span 1; grid-row: span 1; }
+            .card-large, .card-wide, .card-tall, .card-square, .card-superwide { grid-column: span 1; grid-row: span 1; }
         }
     </style>
 </head>
@@ -134,17 +135,6 @@
                 </div>
             </a>
 
-            <!-- Crosswater (Tall) -->
-            <a href="https://www.crosswater.co.uk/" target="_blank" class="bento-card card-tall">
-                <img src="assets/images/suppliers/supplier_crosswater.jpg" alt="Crosswater Fixtures" class="bento-bg">
-                <div class="bento-overlay"></div>
-                <div class="bento-content">
-                    <div class="bento-brand">Crosswater</div>
-                    <div class="bento-desc">Designer Brassware</div>
-                    <div class="bento-link">View Fixtures &rarr;</div>
-                </div>
-            </a>
-
             <!-- Vaillant (Square) -->
             <a href="https://www.vaillant.co.uk/" target="_blank" class="bento-card card-square">
                 <img src="assets/images/suppliers/supplier_vaillant.jpg" alt="Vaillant Heat Pump" class="bento-bg">
@@ -156,39 +146,58 @@
                 </div>
             </a>
 
-            <!-- Hive (Square Typographic) -->
-            <a href="https://www.hivehome.com/" target="_blank" class="bento-card card-square card-typographic">
+            <!-- Crosswater (Square) -->
+            <a href="https://www.crosswater.co.uk/" target="_blank" class="bento-card card-square">
+                <img src="assets/images/suppliers/supplier_crosswater.jpg" alt="Crosswater Fixtures" class="bento-bg">
+                <div class="bento-overlay"></div>
                 <div class="bento-content">
-                    <div class="bento-brand" style="color: #FF7B00;">Hive</div>
+                    <div class="bento-brand">Crosswater</div>
+                    <div class="bento-desc">Designer Brassware</div>
+                    <div class="bento-link">View Fixtures &rarr;</div>
+                </div>
+            </a>
+
+            <!-- Hive (Square) -->
+            <a href="https://www.hivehome.com/" target="_blank" class="bento-card card-square">
+                <img src="assets/images/suppliers/supplier_hive.jpg" alt="Hive Smart Home" class="bento-bg">
+                <div class="bento-overlay"></div>
+                <div class="bento-content">
+                    <div class="bento-brand">Hive</div>
                     <div class="bento-desc">Smart Automation</div>
-                    <div class="bento-link" style="color: #FF7B00;">Control Your Home &rarr;</div>
+                    <div class="bento-link">Control Your Home &rarr;</div>
                 </div>
             </a>
 
-            <!-- Nest (Square Typographic) -->
-            <a href="https://store.google.com/category/connected_home" target="_blank" class="bento-card card-square card-typographic">
+            <!-- Nest (Square) -->
+            <a href="https://store.google.com/category/connected_home" target="_blank" class="bento-card card-square">
+                <img src="assets/images/suppliers/supplier_nest.jpg" alt="Nest Thermostat" class="bento-bg">
+                <div class="bento-overlay"></div>
                 <div class="bento-content">
-                    <div class="bento-brand" style="color: #4285F4;">Nest</div>
+                    <div class="bento-brand">Nest</div>
                     <div class="bento-desc">Intelligent Climate</div>
-                    <div class="bento-link" style="color: #4285F4;">Discover Nest &rarr;</div>
+                    <div class="bento-link">Discover Nest &rarr;</div>
                 </div>
             </a>
 
-            <!-- Mira Showers (Square Typographic) -->
-            <a href="https://www.mirashowers.co.uk/" target="_blank" class="bento-card card-square card-typographic">
+            <!-- Mira Showers (Wide) -->
+            <a href="https://www.mirashowers.co.uk/" target="_blank" class="bento-card card-wide">
+                <img src="assets/images/suppliers/supplier_mira.jpg" alt="Mira Digital Showers" class="bento-bg">
+                <div class="bento-overlay"></div>
                 <div class="bento-content">
-                    <div class="bento-brand" style="color: #00A3E0;">Mira</div>
+                    <div class="bento-brand">Mira</div>
                     <div class="bento-desc">Digital Showers</div>
-                    <div class="bento-link" style="color: #00A3E0;">View Showers &rarr;</div>
+                    <div class="bento-link">View Showers &rarr;</div>
                 </div>
             </a>
 
-            <!-- Aqualisa (Square Typographic) -->
-            <a href="https://www.aqualisa.co.uk/" target="_blank" class="bento-card card-square card-typographic">
+            <!-- Aqualisa (Super Wide - stretches across bottom) -->
+            <a href="https://www.aqualisa.co.uk/" target="_blank" class="bento-card card-superwide">
+                <img src="assets/images/suppliers/supplier_aqualisa.jpg" alt="Aqualisa Smart Tech" class="bento-bg">
+                <div class="bento-overlay"></div>
                 <div class="bento-content">
-                    <div class="bento-brand" style="color: #005A9C;">Aqualisa</div>
+                    <div class="bento-brand">Aqualisa</div>
                     <div class="bento-desc">Smart Water Tech</div>
-                    <div class="bento-link" style="color: #005A9C;">Explore Aqualisa &rarr;</div>
+                    <div class="bento-link">Explore Aqualisa &rarr;</div>
                 </div>
             </a>
         </section>

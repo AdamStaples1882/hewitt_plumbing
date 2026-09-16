@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://images.unsplash.com https://www.wolseley.co.uk https://www.lussostone.com https://www.vaillant.co.uk https://deluxebathrooms.ie https://media.screwfix.com https://a.storyblok.com https://underfloorheating-direct.com https://www.worcester-bosch.co.uk; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://static.elfsight.com https://core.elfsight.com;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hewitt Plumbing & Heating | Social Media & Reviews</title>
@@ -135,6 +136,30 @@
     </style>
     <!-- Elfsight scripts -->
     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+
+<style id="global-footer-css">
+    footer { background: var(--bg-black); color: var(--text-light); padding: 6rem 5% 2rem; position: relative; overflow: hidden; margin-top: auto; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; position: relative; z-index: 1; }
+    .footer-brand .logo-text .brand { color: var(--text-light); font-size: 1.4rem; }
+    .footer-brand .logo-text .tagline { color: rgba(255, 255, 255, 0.85); }
+    .footer-brand p { color: rgba(255, 255, 255, 0.7); margin-top: 1.5rem; line-height: 1.8; font-size: 0.9rem; }
+    .footer-col h4 { font-family: 'Oswald', serif; font-size: 1.1rem; color: var(--brand-red); margin-bottom: 1.5rem; font-weight: 400; letter-spacing: 0.05em; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 0.8rem; }
+    .footer-col ul li a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-size: 0.85rem; transition: var(--transition-fast, 0.3s ease); font-weight: 300; display: inline-block; }
+    .footer-col ul li a:hover { color: var(--brand-red); padding-left: 5px; }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.85); text-transform: uppercase; letter-spacing: 0.15em; }
+    .footer-bottom a { color: rgba(255, 255, 255, 0.85); text-decoration: none; transition: var(--transition-fast, 0.3s ease); }
+    .footer-bottom a:hover { color: var(--brand-red); }
+    
+    @media (max-width: 1024px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+</style>
+
 </head>
 <body>
 
@@ -188,6 +213,20 @@
         </div>
     </div>
 
+    
+
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const btn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.contains('active');
+            btn.setAttribute('aria-expanded', isExpanded);
+        }
+    </script>
+
+
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
@@ -217,6 +256,17 @@
                 </ul>
             </div>
             <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="suppliers.html">Suppliers</a></li>
+                    <li><a href="estimate.html">Estimator</a></li>
+                    <li><a href="tips.html">Hints & Tips</a></li>
+                    <li><a href="social-media.html">Social Media</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
                 <h4>Contact</h4>
                 <ul>
                     <li><a href="tel:07540182837">07540 182 837</a></li>
@@ -232,17 +282,6 @@
             <div>Gas Safe Registered Engineer - St Albans, Hertfordshire</div>
         </div>
     </footer>
-
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const btn = document.querySelector('.mobile-menu-btn');
-            navLinks.classList.toggle('active');
-            const isExpanded = navLinks.classList.contains('active');
-            btn.setAttribute('aria-expanded', isExpanded);
-        }
-    </script>
 
 </body>
 </html>

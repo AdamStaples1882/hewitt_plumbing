@@ -319,12 +319,12 @@ function calculateBase() {
     const c = state.config;
     
     if (state.category === 'boiler') {
-        base = parseInt(c.type) + parseInt(c.smart);
+        base = (parseInt(c.type, 10) || 0) + (parseInt(c.smart, 10) || 0);
         if (c.location === 'sameroom') base += 300;
         if (c.location === 'newroom') base += 800;
         state.estimatedDays = c.location === 'same' ? '1 - 2' : '2 - 3';
     } else if (state.category === 'bathroom') {
-        base = parseInt(c.spec);
+        base = (parseInt(c.spec, 10) || 0);
         if (c.tile === 'half') base += 1500;
         if (c.tile === 'full') base += 3000;
         if (c.layout === 'relocate') base += 1000;

@@ -93,7 +93,7 @@
         /* Top Bar & Nav */
         .top-bar { background: var(--bg-black); color: var(--border-dark); padding: 0.8rem 3rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(230,0,0,0.1); }
         .top-bar a { color: var(--brand-red); text-decoration: none; font-weight: 500; }
-        nav { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-dark); }
+        nav { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); position: relative; z-index: 1000; border-bottom: 1px solid var(--border-dark); }
         .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: space-between; align-items: center; height: 90px; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; transition: var(--transition-fast); }
@@ -223,322 +223,80 @@
             <button class="filter-pill" onclick="setFilter('emergency')">Emergency Triage</button>
         </div>
 
+        
         <section class="tips-grid" id="tipsGrid">
             
-            <!-- Card 1 -->
-            <article class="tip-card" data-category="boiler emergency">
+            <article class="tip-card" data-category="radiator">
                 <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/zUsBw1ZpiKY')">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Boiler pressure gauge" class="facade-img" loading="lazy">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/0tNfbiNFY2k')">
+                        <img src="https://img.youtube.com/vi/0tNfbiNFY2k/maxresdefault.jpg" alt="Radiator Maintenance Masterclass" class="facade-img" loading="lazy" style="object-fit: cover;">
                         <div class="play-button"></div>
                     </div>
                 </div>
                 <div class="tip-content">
                     <div class="tip-meta">
-                        <span>&#9654; 2 Min Watch</span>
-                        <span>&bull; Curated Video</span>
+                        <span>&#127909; Masterclass Video</span>
+                        <span>&bull; @mmplumber</span>
                     </div>
-                    <h2 class="tip-title">How to Safely Re-pressurize Your Boiler</h2>
+                    <h2 class="tip-title">Radiator Troubleshooting & Maintenance</h2>
                     <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>This tutorial from Worcester Bosch is excellent. However, remember that in St Albans, our extremely hard water means filling loops can sometimes stiffen. Turn the valves slowly. If it reads over 1.5 bar, you may need to bleed a radiator to release the excess.</p>
+                        <h4>Our Expert's Take:</h4>
+                        <p>Learn professional techniques for diagnosing and fixing common radiator issues. In this video from @mmplumber, you'll discover how to handle cold spots, balance your system, and ensure maximum heat output during the Hertfordshire winters.</p>
                     </div>
                     <div class="tip-cta">
-                        <a href="index.html#quote-form">Not comfortable doing this yourself? Book a St Albans engineer now. &rarr;</a>
+                        <a href="index.html#quote-form">Need professional help? Request a quote. &rarr;</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Card 2 -->
-            <article class="tip-card" data-category="hardwater fixtures">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
-                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Luxury shower head" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#128196; 3 Min Read</span>
-                        <span>&bull; Internal Article</span>
-                    </div>
-                    <h2 class="tip-title">Protecting Luxury Matte Black Brassware from Limescale</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>Hertfordshire has some of the hardest water in the UK. Never use harsh chemical descalers on Lusso Stone or Crosswater matte black finishes. Use a 50/50 mix of white vinegar and water, apply gently with a microfiber cloth, and rinse immediately. Better yet, install a whole-house water softener to protect your investment.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="index.html#quote-form">Need a water softener installed? Get a free consultation. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="tip-card" data-category="emergency boiler">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/3iFyHf4in8k')">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Radiator valve" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#9654; 1 Min Watch</span>
-                        <span>&bull; Curated Social Reel</span>
-                    </div>
-                    <h2 class="tip-title">Emergency Triage: How to Isolate a Leaking Radiator Valve</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>If you spot a leak on your valve, the quickest way to prevent carpet damage is isolation. Turn the TRV (Thermostatic Radiator Valve) to zero, and use an adjustable spanner to turn the lockshield valve clockwise until it stops. Count the turns so we can re-balance it later!</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="tel:07540182837">Have an active leak? Call our emergency line immediately. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-
-            <!-- Card 4 -->
-            <article class="tip-card" data-category="emergency">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/ZspLxzCsr7I')">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Stopcock" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#128196; 2 Min Read</span>
-                        <span>&bull; Internal Article</span>
-                    </div>
-                    <h2 class="tip-title">Finding & Turning Off Your Main Stopcock</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>In a burst pipe emergency, every second counts. In older St Albans and Hertfordshire properties, the internal stopcock is often located under the kitchen sink, or sometimes in a downstairs WC or under the stairs. Turn it clockwise to shut off the water instantly.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="tel:07540182837">Burst pipe? Call our emergency line immediately. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 5 -->
             <article class="tip-card" data-category="boiler">
                 <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/GP3KxAyNI6s')">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Bleeding a radiator" class="facade-img" loading="lazy">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/7VcqMLcRvWI')">
+                        <img src="https://img.youtube.com/vi/7VcqMLcRvWI/maxresdefault.jpg" alt="Boiler Diagnostics Masterclass" class="facade-img" loading="lazy" style="object-fit: cover;">
                         <div class="play-button"></div>
                     </div>
                 </div>
                 <div class="tip-content">
                     <div class="tip-meta">
-                        <span>&#9654; 2 Min Watch</span>
-                        <span>&bull; Curated Video</span>
+                        <span>&#127909; Masterclass Video</span>
+                        <span>&bull; @mmplumber</span>
                     </div>
-                    <h2 class="tip-title">How to Bleed Your Radiators for Maximum Heat</h2>
+                    <h2 class="tip-title">Boiler Pressure & System Balancing</h2>
                     <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>If your radiators are cold at the top, they need bleeding. Turn off your heating first. Start from the ground floor and work up. Have a cloth ready, open the valve with a radiator key until water dribbles out, then close tight. Check boiler pressure afterwards!</p>
+                        <h4>Our Expert's Take:</h4>
+                        <p>A dropping boiler pressure is the #1 call-out we get in St Albans. Watch this deep-dive masterclass by @mmplumber on how to use the filling loop, diagnose expansion vessel failure, and safely repressurize your system.</p>
                     </div>
                     <div class="tip-cta">
-                        <a href="index.html#quote-form">Need a full central heating service? Book an engineer. &rarr;</a>
+                        <a href="index.html#quote-form">Boiler still losing pressure? Book a diagnostic. &rarr;</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Card 6 -->
-            <article class="tip-card" data-category="boiler emergency">
+            <article class="tip-card" data-category="fixtures">
                 <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/s3STTuDhFRQ')">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Frozen pipe" class="facade-img" loading="lazy">
+                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/9hD60yDXVK4')">
+                        <img src="https://img.youtube.com/vi/9hD60yDXVK4/maxresdefault.jpg" alt="Advanced Pipework Masterclass" class="facade-img" loading="lazy" style="object-fit: cover;">
                         <div class="play-button"></div>
                     </div>
                 </div>
                 <div class="tip-content">
                     <div class="tip-meta">
-                        <span>&#128196; 3 Min Read</span>
-                        <span>&bull; Internal Article</span>
+                        <span>&#127909; Masterclass Video</span>
+                        <span>&bull; @mmplumber</span>
                     </div>
-                    <h2 class="tip-title">Thawing a Frozen Condensate Pipe</h2>
+                    <h2 class="tip-title">Advanced Pipework & Leak Prevention</h2>
                     <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>During freezing Hertfordshire winters, your boiler might stop working and show a fault code. It's often a frozen white plastic pipe outside. Pour warm (not boiling!) water over the pipe to thaw it, then reset the boiler.</p>
+                        <h4>Our Expert's Take:</h4>
+                        <p>Quality pipework is the foundation of any luxury bathroom or heating system. In this video, @mmplumber showcases advanced installation techniques and how to permanently prevent leaks using professional fittings.</p>
                     </div>
                     <div class="tip-cta">
-                        <a href="tel:07540182837">Boiler still won't reset? Call us for a fast response. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 7 -->
-            <article class="tip-card" data-category="fixtures hardwater">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/AUhqZEVngYc')">
-                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Chrome taps" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#9654; 1 Min Watch</span>
-                        <span>&bull; Curated Social Reel</span>
-                    </div>
-                    <h2 class="tip-title">Removing Hard Water Limescale from Chrome</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>St Albans has very hard water. Don't use abrasive pads on luxury chrome fixtures. Soak a cloth in white vinegar, wrap it around the tap, and leave for an hour. The limescale will wipe away without scratching the finish.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="index.html#quote-form">Looking to upgrade your bathroom fixtures? Get a quote. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 8 -->
-            <article class="tip-card" data-category="emergency boiler">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/8OtBXU0YC2M')">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Outdoor pipes" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#128196; 2 Min Read</span>
-                        <span>&bull; Internal Article</span>
-                    </div>
-                    <h2 class="tip-title">Winter-Proofing Outdoor Pipework</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>Prevent burst pipes in winter by insulating outdoor taps and exposed pipes with foam lagging. It's a cheap fix that saves thousands in water damage when temperatures drop in the Home Counties.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="index.html#quote-form">Need professional pipe insulation? Enquire now. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 9 -->
-            <article class="tip-card" data-category="fixtures hardwater">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/fcf1yr6Yokg')">
-                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Shower head" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#128196; 3 Min Read</span>
-                        <span>&bull; Internal Article</span>
-                    </div>
-                    <h2 class="tip-title">Why is My Shower Pressure Dropping?</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>If your shower pressure is suddenly weak, limescale buildup inside the showerhead is the usual suspect in Herts. Unscrew the head and soak it in a descaling solution or vinegar overnight. If the problem persists, it could be a pump issue.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="index.html#quote-form">Low pressure persists? Have our experts take a look. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 10 -->
-            <article class="tip-card" data-category="boiler fixtures">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/IC79vuzKsu8')">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Radiator valve" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#9654; 1 Min Watch</span>
-                        <span>&bull; Curated Social Reel</span>
-                    </div>
-                    <h2 class="tip-title">Fixing a Stuck Radiator Valve (TRV)</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>If a single radiator stays cold while the rest are hot, the pin inside the TRV might be stuck. Remove the plastic TRV head and gently tap the metal pin with a flathead screwdriver to free it.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="index.html#quote-form">Need replacement valves installed? Get a quote. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 11 -->
-            <article class="tip-card" data-category="boiler hardwater">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Black sludge powerflush" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#128196; 3 Min Read</span>
-                        <span>&bull; Internal Article</span>
-                    </div>
-                    <h2 class="tip-title">Signs You Need a Powerflush</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>Black sludge in your radiators destroys efficiency and ruins boilers. If your radiators have cold spots at the bottom, or your boiler is unusually noisy, it's time for a professional powerflush to clear the system and protect your heating loop.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="index.html#quote-form">Book a professional powerflush for your system. &rarr;</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 12 -->
-            <article class="tip-card" data-category="emergency">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Gas meter" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#128196; 2 Min Read</span>
-                        <span>&bull; Internal Article</span>
-                    </div>
-                    <h2 class="tip-title">What to Do If You Smell Gas</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>Never ignore a gas smell. Open all windows, turn off the gas at the meter (usually in a box outside or under the stairs), do NOT turn on light switches, and call the National Gas Emergency Number immediately on 0800 111999.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="tel:0800111999">Smell gas? Call 0800 111999 immediately.</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 13 -->
-            <article class="tip-card" data-category="hardwater fixtures">
-                <div class="tip-media">
-                    <div class="facade-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sjyEkLwHtTc')">
-                        <img src="https://images.unsplash.com/photo-1585058177435-090c2393cb10?auto=format&fit=crop&w=600&q=80" alt="Water softener" class="facade-img" loading="lazy">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="tip-content">
-                    <div class="tip-meta">
-                        <span>&#128196; 4 Min Read</span>
-                        <span>&bull; Internal Article</span>
-                    </div>
-                    <h2 class="tip-title">Protecting Your Home with a Water Softener</h2>
-                    <div class="expert-take">
-                        <h4>Our Engineer's Take:</h4>
-                        <p>Hertfordshire's chalky bedrock means extremely hard water. A whole-house water softener not only protects luxury bathrooms from scale, but extends the life of your boiler and washing machine significantly.</p>
-                    </div>
-                    <div class="tip-cta">
-                        <a href="index.html#quote-form">Request a quote for a whole-house water softener. &rarr;</a>
+                        <a href="index.html#quote-form">Planning a luxury renovation? Get an estimate. &rarr;</a>
                     </div>
                 </div>
             </article>
 
         </section>
+
     </main>
 
     
